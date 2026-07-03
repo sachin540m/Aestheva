@@ -12,20 +12,22 @@ export default function Footer() {
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    if (location.pathname === '/') {
-      const element = document.getElementById(targetId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
+    if (targetId === 'hero') {
       navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(targetId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (targetId === 'about') {
+      navigate('/about');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (targetId === 'contact') {
+      navigate('/contact');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+  };
+
+  const handleTreatmentClick = (e, path) => {
+    e.preventDefault();
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -35,14 +37,14 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/logo.png" alt="Dr. Ketaki's Aesthéva" style={{ height: '50px', width: 'auto' }} />
+              <img src="/minilogo.jpg" alt="Dr. Ketaki's Aesthéva" style={{ height: '50px', width: 'auto' }} />
             </div>
             <p className="footer-tagline">Renew Skin. Reveal You</p>
             <p className="footer-description">
               Dermatologist-led, client-focused clinic for advanced skin, hair, and laser aesthetic solutions.
             </p>
             <div className="footer-socials">
-              <a href="https://instagram.com/drkketakis.aestheva" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
+              <a href="https://instagram.com/dr_ketakis_aestheva" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-icon" aria-label="LinkedIn">
@@ -55,22 +57,20 @@ export default function Footer() {
             <h4 className="footer-heading">Quick Links</h4>
             <ul className="footer-links">
               <li><a href="/" onClick={(e) => handleNavClick(e, 'hero')}>Home</a></li>
-              <li><a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a></li>
-              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Clinical Services</a></li>
-              <li><a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
+              <li><a href="/about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a></li>
+              <li><a href="/contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a></li>
             </ul>
           </div>
 
           <div className="footer-links-col">
             <h4 className="footer-heading">Treatments</h4>
             <ul className="footer-links">
-              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Skin Rejuvenation</a></li>
-              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Acne Management</a></li>
-              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>Laser Hair Removal</a></li>
-              <li><a href="#services" onClick={(e) => handleNavClick(e, 'services')}>PRP / Hair Fall Therapy</a></li>
+              <li><a href="/services/skin-rejuvenation" onClick={(e) => handleTreatmentClick(e, '/services/skin-rejuvenation')}>Skin Care</a></li>
+              <li><a href="/services/anti-aging-treatment" onClick={(e) => handleTreatmentClick(e, '/services/anti-aging-treatment')}>Aesthetic Care</a></li>
+              <li><a href="/services/prp-gfc-therapy" onClick={(e) => handleTreatmentClick(e, '/services/prp-gfc-therapy')}>Hair Care</a></li>
+              <li><a href="/services/laser-hair-removal" onClick={(e) => handleTreatmentClick(e, '/services/laser-hair-removal')}>Laser Treatments</a></li>
             </ul>
           </div>
-
 
           <div className="footer-links-col contact-col">
             <h4 className="footer-heading">Disclaimer</h4>

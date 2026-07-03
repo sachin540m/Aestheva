@@ -1,245 +1,348 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { ArrowRight, Star } from 'lucide-react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import MagneticButton from './MagneticButton';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero({ onBookClick }) {
+  const containerRef = useRef(null);
+  const titleRef = useRef(null);
+  const imgRef = useRef(null);
+
+  // Character split for staggering title
+  const titleText = "Aesthéva Is Professional Care for Healthy, Radiant Skin";
+  const words = titleText.split(" ");
+
+  // Typewriter effect state
+  const subtitleText = "Expert-led skin, hair, and laser treatments tailored to your unique needs, helping you look refreshed, confident, and naturally beautiful.";
+  const [typedText, setTypedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    setTypedText("");
+    const interval = setInterval(() => {
+      setTypedText((prev) => prev + subtitleText.charAt(index));
+      index++;
+      if (index >= subtitleText.length) {
+        clearInterval(interval);
+      }
+    }, 25);
+    return () => clearInterval(interval);
+  }, []);
+
+  useGSAP(() => {
+    // Character reveal animation
+    const chars = titleRef.current.querySelectorAll('.char');
+    gsap.fromTo(chars, 
+      { opacity: 0, y: 30 },
+      { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.6, 
+        stagger: 0.02, 
+        ease: "power4.out",
+        delay: 0.2
+      }
+    );
+
+    // Parallax on image scroll
+    gsap.to(imgRef.current, {
+      y: 100,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+
+    // Background stars parallax
+    gsap.to(containerRef.current.querySelector('.star1'), {
+      y: -60,
+      rotate: 45,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+
+    gsap.to(containerRef.current.querySelector('.star2'), {
+      y: -120,
+      rotate: -45,
+      ease: "none",
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      }
+    });
+  }, { scope: containerRef });
+
   return (
-    <section id="hero" className="hero-section">
-      <div className="container hero-container-grid">
-        <div className="hero-info animate-fade-in">
-          <div className="google-rating-badge">
-            <div className="stars-row">
-              <Star size={14} fill="#C8834A" stroke="none" />
-              <Star size={14} fill="#C8834A" stroke="none" />
-              <Star size={14} fill="#C8834A" stroke="none" />
-              <Star size={14} fill="#C8834A" stroke="none" />
-              <Star size={14} fill="#C8834A" stroke="none" />
+    <section id="hero" className="hero-banner style-1" ref={containerRef}>
+      <div className="container">
+        <div className="inner-wrapper">
+          <div className="row align-items-center h-100">
+            <div className="col-md-6">
+              <div className="hero-content">
+                <h1 className="title" ref={titleRef}>
+                  {words.map((word, wIdx) => (
+                    <span key={wIdx} style={{ display: 'inline-block', whiteSpace: 'nowrap', marginRight: '0.3em' }} className="word">
+                      {word.split("").map((char, cIdx) => (
+                        <span key={cIdx} style={{ display: 'inline-block' }} className="char">
+                          {char}
+                        </span>
+                      ))}
+                    </span>
+                  ))}
+                </h1>
+                
+                <div className="content-bx style-2 secondary m-b40">
+                  {typedText}
+                  <span className="typewriter-cursor">|</span>
+                </div>
+
+                <div className="d-flex btn-wrapper">
+                  <MagneticButton>
+                    <button onClick={onBookClick} className="btn btn-lg btn-icon btn-pill">
+                      Appointment
+                      <span className="right-icon"><ArrowRight size={18} style={{ marginLeft: '8px' }} /></span>
+                    </button>
+                  </MagneticButton>
+                </div>
+              </div>
             </div>
-            <span className="rating-text">4.9/5 Rating on Google Reviews</span>
-          </div>
-          
-          <h1 className="hero-title">
-            Professional Care for <span className="highlight-text">Healthy, Radiant Skin</span> & Hair
-          </h1>
-          
-          <p className="hero-desc">
-            Welcome to Dr. Ketaki's Aestheva. We provide expert, dermatologist-guided treatments designed to rejuvenate, nourish, and protect your skin and hair, helping you achieve a natural, long-lasting glow.
-          </p>
-          
-          <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={onBookClick}>
-              Book Appointment
-              <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-            </button>
-            <a href="#services" className="btn btn-outline">
-              Explore Treatments
-            </a>
-          </div>
-          
-          <div className="hero-stats">
-            <div className="stat-item">
-              <span className="stat-number">10+</span>
-              <span className="stat-label">Years Experience</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">5k+</span>
-              <span className="stat-label">Happy Patients</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">20+</span>
-              <span className="stat-label">Expert Procedures</span>
+            
+            <div className="col-md-6 align-self-end img-column">
+              <div className="hero-thumbnail" style={{ overflow: 'hidden' }}>
+                <img ref={imgRef} className="thumbnail" src="/hero-banner.png" alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
+              </div>
             </div>
           </div>
+
+          {/* SVG stars to match Emberglow */}
+          <svg className="shape-star star1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="var(--primary)" />
+          </svg>
+          <svg className="shape-star star2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="var(--primary)" />
+          </svg>
         </div>
-        
-        <div className="hero-media-wrapper">
-          <div className="hero-image-frame">
-            <img src="/hero-banner.png" alt="Aestheva Clinic Interior" className="hero-image" />
-          </div>
-          <div className="hero-decor-badge">
-            <span className="decor-tag">DOCTOR-LED CLINIC</span>
-          </div>
-        </div>
+      </div>
+      
+      {/* Right floating rating widget */}
+      <div className="widget-rating-right">
+        <ul className="star-list">
+          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
+          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
+          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
+          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
+          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
+        </ul>
+        <span className="rating">(4.8)</span>
+        <span className="text">200+ ratings on google</span>
       </div>
 
       <style>{`
-        .hero-section {
-          padding-top: 10rem;
-          padding-bottom: 6rem;
-          background: var(--bg-primary);
+        .hero-content .title .char {
+          color: var(--text-dark);
+          -webkit-text-fill-color: var(--text-dark) !important;
+        }
+        .typewriter-cursor {
+          display: inline-block;
+          font-weight: 200;
+          color: var(--primary);
+          animation: blink 0.75s step-end infinite;
+          margin-left: 2px;
+        }
+        @keyframes blink {
+          from, to { color: transparent }
+          50% { color: var(--primary); }
+        }
+        .hero-banner {
           position: relative;
+          padding: 9.5rem 0 0 0;
+          background: var(--bg-primary);
           overflow: hidden;
         }
-        .hero-section::before {
-          content: '';
-          position: absolute;
-          width: 300px;
-          height: 300px;
-          background: rgba(221, 149, 137, 0.05);
-          border-radius: 50%;
-          top: -100px;
-          right: -100px;
-          filter: blur(50px);
+        .inner-wrapper {
+          position: relative;
+          z-index: 2;
         }
-        .hero-container-grid {
-          display: grid;
-          grid-template-columns: 1.1fr 0.9fr;
-          gap: 4rem;
-          align-items: center;
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -15px;
         }
-        .google-rating-badge {
+        .col-md-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+          padding: 0 15px;
+        }
+        .hero-content {
+          padding-right: 2rem;
+          margin-bottom: 5.5rem;
+        }
+        
+        .hero-content .title {
+          font-size: 4.2rem;
+          font-weight: 700;
+          line-height: 1.15;
+          color: var(--text-dark);
+          margin-bottom: 2rem;
+        }
+        
+        .content-bx {
+          font-size: 1.05rem;
+          color: var(--text-muted);
+          line-height: 1.6;
+          margin-bottom: 2.5rem;
+          border-left: 4px solid var(--primary);
+          padding-left: 1.2rem;
+          max-width: 90%;
+        }
+        
+        .btn-wrapper {
+          display: flex;
+          gap: 1rem;
+        }
+        
+        .btn-pill {
+          background: var(--primary-gradient);
+          color: white;
+          border-radius: 50px;
+          padding: 0.9rem 2.2rem;
+          font-weight: 500;
+          font-size: 1.05rem;
           display: inline-flex;
           align-items: center;
-          gap: 0.6rem;
-          background: var(--bg-secondary);
-          padding: 0.5rem 1rem;
-          border-radius: 50px;
+          gap: 0.5rem;
+          border: none;
+          cursor: pointer;
+          transition: all 0.3s ease;
           box-shadow: var(--shadow-sm);
-          margin-bottom: 1.5rem;
-          border: 1px solid var(--border-color);
         }
-        .stars-row {
+        .btn-pill:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-md);
+        }
+        
+        .hero-thumbnail {
+          position: relative;
           display: flex;
-          gap: 2px;
+          justify-content: flex-end;
+          align-items: flex-end;
+          height: 100%;
         }
-        .rating-text {
-          font-size: 0.8rem;
-          font-weight: 600;
-          color: var(--text-muted);
-          letter-spacing: 0.2px;
+        .thumbnail {
+          width: 100%;
+          max-width: 550px;
+          height: auto;
+          /* Removed border and border-radius completely to match frameless look */
+          object-fit: cover;
+          display: block;
         }
-        .hero-title {
-          font-size: 4rem;
-          font-weight: 500;
-          line-height: 1.15;
-          margin-bottom: 1.5rem;
-          color: var(--text-dark);
-        }
-        .highlight-text {
-          color: var(--primary-dark);
-          background: rgba(221, 149, 137, 0.1);
-          padding: 0 4px;
-          border-radius: 4px;
-        }
-        .hero-desc {
-          font-size: 1.1rem;
-          color: var(--text-muted);
-          margin-bottom: 2.5rem;
-          max-width: 600px;
-          line-height: 1.7;
-        }
-        .hero-buttons {
+        
+        /* Floating right rating */
+        .widget-rating-right {
+          position: absolute;
+          right: 2rem;
+          top: 50%;
+          transform: translateY(-50%);
           display: flex;
-          gap: 1.2rem;
-          margin-bottom: 3.5rem;
+          flex-direction: column-reverse; /* To read bottom-to-top when rotated */
+          align-items: center;
+          background: var(--bg-secondary);
+          padding: 1rem 0.6rem;
+          border-radius: 50px;
+          box-shadow: var(--shadow-md);
+          z-index: 10;
         }
-        .hero-stats {
-          display: flex;
-          gap: 3rem;
-          border-top: 1px solid var(--border-color);
-          padding-top: 2rem;
-        }
-        .stat-item {
+        .widget-rating-right .star-list {
           display: flex;
           flex-direction: column;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          gap: 4px;
         }
-        .stat-number {
-          font-family: var(--font-serif);
-          font-size: 2.2rem;
+        .widget-rating-right .rating {
           font-weight: 700;
-          color: var(--primary);
-          line-height: 1;
-          margin-bottom: 0.4rem;
-        }
-        .stat-label {
           font-size: 0.85rem;
-          text-transform: uppercase;
-          letter-spacing: 1px;
+          color: var(--primary);
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          margin-bottom: 0.5rem;
+        }
+        .widget-rating-right .text {
+          font-size: 0.8rem;
           color: var(--text-muted);
+          writing-mode: vertical-rl;
+          transform: rotate(180deg);
+          margin-bottom: 0.8rem;
+          letter-spacing: 0.5px;
           font-weight: 500;
         }
 
-        .hero-media-wrapper {
-          position: relative;
-        }
-        .hero-image-frame {
-          border-radius: 20px 20px 20px 100px;
-          overflow: hidden;
-          box-shadow: var(--shadow-lg);
-          border: 4px solid white;
-          aspect-ratio: 4/5;
-        }
-        .hero-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: transform 0.5s ease;
-        }
-        .hero-image:hover {
-          transform: scale(1.03);
-        }
-        .hero-decor-badge {
+        /* Star shapes */
+        .shape-star {
           position: absolute;
-          bottom: 20px;
-          left: -20px;
-          background: var(--bg-dark);
-          color: var(--text-light);
-          padding: 0.8rem 1.5rem;
-          border-radius: 4px;
-          box-shadow: var(--shadow-md);
+          width: 30px;
+          height: 30px;
+          z-index: 1;
         }
-        .decor-tag {
-          font-size: 0.75rem;
-          font-weight: 600;
-          letter-spacing: 2px;
+        .star1 {
+          top: 10%;
+          left: 55%;
+        }
+        .star2 {
+          top: 45%;
+          right: 15%;
         }
 
         @media (max-width: 1024px) {
-          .hero-container-grid {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            text-align: center;
+          .hero-banner {
+            padding: 8rem 0 0 0;
           }
-          .hero-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+          .hero-content .title {
+            font-size: 3.2rem;
           }
-          .hero-title {
-            font-size: 3rem;
-          }
-          .hero-desc {
-            margin-inline: auto;
-          }
-          .hero-buttons {
-            justify-content: center;
-            margin-bottom: 2.5rem;
-          }
-          .hero-stats {
-            justify-content: center;
-            width: 100%;
-          }
-          .hero-media-wrapper {
-            max-width: 500px;
-            margin: 0 auto;
-            width: 100%;
+          .widget-rating-right {
+            display: none; /* Hide on smaller screens to save space */
           }
         }
+        @media (max-width: 768px) {
+          .col-md-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          .hero-content {
+            padding-right: 0;
+            margin-bottom: 3rem;
+          }
+          .hero-content .title {
+            font-size: 2.8rem;
+          }
+          .hero-thumbnail {
+            justify-content: center;
+          }
+          .thumbnail {
+            max-width: 90%;
+          }
+          .star1 { left: 80%; }
+          .star2 { display: none; }
+        }
         @media (max-width: 480px) {
-          .hero-title {
-            font-size: 2.4rem;
-          }
-          .hero-buttons {
-            flex-direction: column;
-            width: 100%;
-          }
-          .hero-buttons button, .hero-buttons a {
-            width: 100%;
-          }
-          .hero-stats {
-            gap: 1.5rem;
-          }
-          .stat-number {
-            font-size: 1.8rem;
+          .hero-content .title {
+            font-size: 2.2rem;
           }
         }
       `}</style>

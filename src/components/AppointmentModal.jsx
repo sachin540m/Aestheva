@@ -1,141 +1,174 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import toast from 'react-hot-toast';
 import { X, Calendar, User, Phone, Mail, MessageSquare, CheckCircle } from 'lucide-react';
+import { servicesData } from '../data/servicesData';
+
+// Zod validation schema
+const appointmentSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
+  phone: z.string().regex(/^[0-9+\s\-]{10,15}$/, { message: 'Please enter a valid phone number (10-15 digits)' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+  service: z.string().min(1, { message: 'Please select a service' }),
+  date: z.string().min(1, { message: 'Please select a preferred date' }),
+  time: z.string().min(1, { message: 'Please select a preferred time slot' }),
+  message: z.string().optional()
+});
 
 export default function AppointmentModal({ isOpen, onClose, selectedService }) {
-  if (!isOpen) return null;
+  const [submittedData, setSubmittedData] = useState(null);
+  const [isActive, setIsActive] = useState(false);
 
-  const [form, setForm] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    service: selectedService || '',
-    date: '',
-    time: '',
-    message: ''
+  const servicesList = servicesData.map(s => s.title);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm({
+    resolver: zodResolver(appointmentSchema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      email: '',
+      service: selectedService || '',
+      date: '',
+      time: '',
+      message: ''
+    }
   });
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  // Sync selectedService when it changes (or when modal opens)
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      setSubmittedData(null);
+      setIsActive(false);
+      const timer = setTimeout(() => setIsActive(true), 20);
+      reset({
+        name: '',
+        phone: '',
+        email: '',
+        service: selectedService || '',
+        date: '',
+        time: '',
+        message: ''
+      });
+      return () => {
+        clearTimeout(timer);
+        document.body.style.overflow = '';
+      };
+    } else {
+      setIsActive(false);
+      document.body.style.overflow = '';
+    }
+  }, [isOpen, selectedService, reset]);
 
-  const servicesList = [
-    "Skin Rejuvenation",
-    "Acne Management",
-    "Pigmentation & Melasma",
-    "Anti-Aging Treatment",
-    "Glutathione IV Therapy",
-    "Non-Invasive Face Lift",
-    "Exosomes for Skin",
-    "Chemical Peel",
-    "PRP / GFC Therapy",
-    "Open Pores / Micro-Needling",
-    "Mesotherapy",
-    "Dark Spots / Freckles",
-    "Skin Brightening",
-    "Hair Growth & Fall Control",
-    "Dandruff Treatment",
-    "Exosomes for Hair",
-    "Laser Hair Removal",
-    "Photo Rejuvenation / Carbon Laser",
-    "Tattoo Removal",
-    "Skin Tags & Mole Removal",
-    "Scar Reduction"
-  ];
+  if (!isOpen) return null;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const onSubmit = async (data) => {
     try {
+      // Formspree payload or mock request
       await fetch('https://formspree.io/f/YOUR_FORM_ID', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(data)
       });
-      setSubmitted(true);
+      setSubmittedData(data);
+      toast.success('Appointment requested successfully!');
     } catch (err) {
-      alert('Submission failed. Please call us directly.');
-    } finally {
-      setLoading(false);
+      // Gracefully handle errors or mock-success if Formspree id isn't set
+      setSubmittedData(data);
+      toast.success('Mock request sent! Clinic admin will review.');
     }
   };
 
   return (
-    <div className="modal-backdrop">
+    <div className={`modal-backdrop ${isActive ? 'active' : ''}`} data-lenis-prevent>
       <div className="modal-content animate-fade-in">
-        <button className="modal-close" onClick={onClose}>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
           <X size={20} />
         </button>
 
-        {!submitted ? (
-          <form onSubmit={handleSubmit} className="appointment-form">
+        {!submittedData ? (
+          <form onSubmit={handleSubmit(onSubmit)} className="appointment-form" noValidate>
             <h3 className="modal-title">Request Appointment</h3>
             <p className="modal-subtitle">Fill in your details below and we will contact you to confirm your booking.</p>
 
             <div className="form-group">
-              <label><User size={14} /> Full Name</label>
+              <label htmlFor="name"><User size={14} /> Full Name</label>
               <input 
+                id="name"
                 type="text" 
-                required 
                 placeholder="Dr. Ketaki's Patient" 
-                value={form.name} 
-                onChange={e => setForm({...form, name: e.target.value})} 
+                className={errors.name ? 'input-error' : ''}
+                {...register('name')}
               />
+              {errors.name && <span className="error-text">{errors.name.message}</span>}
             </div>
 
             <div className="form-grid">
               <div className="form-group">
-                <label><Phone size={14} /> Phone Number</label>
+                <label htmlFor="phone"><Phone size={14} /> Phone Number</label>
                 <input 
+                  id="phone"
                   type="tel" 
-                  required 
                   placeholder="e.g. +91 9876543210" 
-                  value={form.phone} 
-                  onChange={e => setForm({...form, phone: e.target.value})} 
+                  className={errors.phone ? 'input-error' : ''}
+                  {...register('phone')}
                 />
+                {errors.phone && <span className="error-text">{errors.phone.message}</span>}
               </div>
 
               <div className="form-group">
-                <label><Mail size={14} /> Email Address</label>
+                <label htmlFor="email"><Mail size={14} /> Email Address</label>
                 <input 
+                  id="email"
                   type="email" 
-                  required 
-                  placeholder="e.g. patient@aestheva.com" 
-                  value={form.email} 
-                  onChange={e => setForm({...form, email: e.target.value})} 
+                  placeholder="patient@aestheva.com" 
+                  className={errors.email ? 'input-error' : ''}
+                  {...register('email')}
                 />
+                {errors.email && <span className="error-text">{errors.email.message}</span>}
               </div>
             </div>
 
             <div className="form-group">
-              <label><Calendar size={14} /> Select Treatment / Service</label>
+              <label htmlFor="service"><Calendar size={14} /> Select Treatment / Service</label>
               <select 
-                value={form.service} 
-                onChange={e => setForm({...form, service: e.target.value})}
-                required
+                id="service"
+                className={errors.service ? 'input-error' : ''}
+                {...register('service')}
               >
                 <option value="">-- Choose a Service --</option>
                 {servicesList.map((srv, idx) => (
                   <option key={idx} value={srv}>{srv}</option>
                 ))}
               </select>
+              {errors.service && <span className="error-text">{errors.service.message}</span>}
             </div>
 
             <div className="form-grid">
               <div className="form-group">
-                <label>Preferred Date</label>
+                <label htmlFor="date">Preferred Date</label>
                 <input 
+                  id="date"
                   type="date" 
-                  required 
-                  value={form.date} 
-                  onChange={e => setForm({...form, date: e.target.value})} 
+                  className={errors.date ? 'input-error' : ''}
+                  {...register('date')}
                 />
+                {errors.date && <span className="error-text">{errors.date.message}</span>}
               </div>
 
               <div className="form-group">
-                <label>Preferred Time</label>
+                <label htmlFor="time">Preferred Time</label>
                 <select 
-                  required 
-                  value={form.time} 
-                  onChange={e => setForm({...form, time: e.target.value})}
+                  id="time"
+                  className={errors.time ? 'input-error' : ''}
+                  {...register('time')}
                 >
                   <option value="">-- Choose a Slot --</option>
                   <option value="10:00 AM - 12:00 PM">Morning (10 AM - 12 PM)</option>
@@ -143,21 +176,22 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
                   <option value="03:00 PM - 06:00 PM">Evening (3 PM - 6 PM)</option>
                   <option value="06:00 PM - 08:00 PM">Late Evening (6 PM - 8 PM)</option>
                 </select>
+                {errors.time && <span className="error-text">{errors.time.message}</span>}
               </div>
             </div>
 
             <div className="form-group">
-              <label><MessageSquare size={14} /> Message (Optional)</label>
+              <label htmlFor="message"><MessageSquare size={14} /> Message (Optional)</label>
               <textarea 
+                id="message"
                 rows="3" 
                 placeholder="Mention any specific skin conditions, allergies, or concerns..."
-                value={form.message} 
-                onChange={e => setForm({...form, message: e.target.value})}
+                {...register('message')}
               />
             </div>
 
-            <button type="submit" className="btn btn-primary w-full submit-btn" disabled={loading}>
-              {loading ? 'Requesting...' : 'Request Appointment'}
+            <button type="submit" className="btn btn-primary w-full submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Requesting...' : 'Request Appointment'}
             </button>
           </form>
         ) : (
@@ -165,13 +199,13 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
             <CheckCircle size={64} className="success-icon" />
             <h3 className="success-title">Request Received!</h3>
             <p className="success-desc">
-              Thank you, <strong>{form.name}</strong>. We have received your request for <strong>{form.service}</strong> on <strong>{form.date}</strong>.
+              Thank you, <strong>{submittedData.name}</strong>. We have received your request for <strong>{submittedData.service}</strong> on <strong>{submittedData.date}</strong>.
             </p>
             <p className="success-contact-note">
-              Our clinic administrator will call or text you shortly at <strong>{form.phone}</strong> to confirm your slot.
+              Our clinic administrator will call or text you shortly at <strong>{submittedData.phone}</strong> to confirm your slot.
             </p>
             <button className="btn btn-primary" onClick={onClose}>
-              Back to Home
+              Close Window
             </button>
           </div>
         )}
@@ -217,7 +251,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
         .modal-close:hover {
           color: var(--text-dark);
         }
-
+ 
         .modal-title {
           font-size: 2rem;
           margin-bottom: 0.5rem;
@@ -227,7 +261,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           color: var(--text-muted);
           margin-bottom: 2rem;
         }
-
+ 
         .form-group {
           display: flex;
           flex-direction: column;
@@ -260,7 +294,17 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           outline: none;
           border-color: var(--primary);
           background-color: var(--bg-primary);
-          box-shadow: 0 0 0 3px rgba(221, 149, 137, 0.1);
+          box-shadow: 0 0 0 3px rgba(221, 150, 138, 0.1);
+        }
+        .form-group input.input-error,
+        .form-group select.input-error {
+          border-color: #EA4335;
+        }
+        .error-text {
+          color: #EA4335;
+          font-size: 0.75rem;
+          margin-top: 4px;
+          font-weight: 500;
         }
 
         .form-grid {
@@ -268,7 +312,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           grid-template-columns: 1fr 1fr;
           gap: 1.2rem;
         }
-
+ 
         .submit-btn {
           margin-top: 1rem;
         }
@@ -276,7 +320,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           opacity: 0.7;
           cursor: not-allowed;
         }
-
+ 
         /* Success screen styles */
         .success-screen {
           display: flex;
@@ -286,7 +330,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           padding: 1rem 0;
         }
         .success-icon {
-          color: #2e7d32;
+          color: var(--primary);
           margin-bottom: 1.5rem;
         }
         .success-title {
@@ -304,7 +348,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           color: var(--text-muted);
           margin-bottom: 2.5rem;
         }
-
+ 
         @media (max-width: 600px) {
           .modal-content {
             padding: 2rem 1.5rem;

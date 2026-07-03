@@ -1,0 +1,899 @@
+/* ============================================================
+   AESTHEVA — Advanced Animations & Effects Layer
+   Drop this AFTER your existing index-CgVlM2gL.css
+   ============================================================ */
+
+/* ─── 0. RESPECT REDUCED MOTION ──────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ─── 1. KEYFRAMES ────────────────────────────────────────── */
+
+@keyframes floatUp {
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatUpStagger {
+  0%   { opacity: 0; transform: translateY(30px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes revealLeft {
+  0%   { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes revealRight {
+  0%   { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(221,150,138,.4); }
+  70%  { transform: scale(1);    box-shadow: 0 0 0 14px rgba(221,150,138,0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(221,150,138,0); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes draw-line {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10%       { transform: translate(-2%, -3%); }
+  30%       { transform: translate(3%, 2%); }
+  50%       { transform: translate(-1%, 4%); }
+  70%       { transform: translate(2%, -2%); }
+  90%       { transform: translate(-3%, 1%); }
+}
+
+@keyframes marquee-glow {
+  0%, 100% { opacity: 0.75; }
+  50%       { opacity: 1; }
+}
+
+@keyframes badge-pop {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  70%  { transform: scale(1.1) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes underline-grow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes card-rise {
+  0%   { opacity: 0; transform: translateY(50px) rotateX(8deg); }
+  100% { opacity: 1; transform: translateY(0)   rotateX(0deg); }
+}
+
+/* ─── 2. SCROLL-REVEAL BASE ───────────────────────────────── */
+/* Add  data-reveal  to any element; JS adds .revealed class  */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+              transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+
+[data-reveal="left"] {
+  transform: translateX(-50px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(50px);
+}
+
+[data-reveal="scale"] {
+  transform: scale(0.88);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger children */
+[data-stagger] > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+              transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+[data-stagger].revealed > *:nth-child(1) { transition-delay: 0.05s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(2) { transition-delay: 0.13s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(3) { transition-delay: 0.21s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(4) { transition-delay: 0.29s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(5) { transition-delay: 0.37s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(6) { transition-delay: 0.45s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(7) { transition-delay: 0.53s; opacity:1; transform:none; }
+[data-stagger].revealed > *:nth-child(8) { transition-delay: 0.61s; opacity:1; transform:none; }
+
+
+/* ─── 3. HERO SECTION ─────────────────────────────────────── */
+
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background orb */
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(221,150,138,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-gentle 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-banner .hero-content {
+  animation: revealLeft 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+}
+
+.hero-banner .hero-thumbnail {
+  animation: revealRight 1s cubic-bezier(0.16,1,0.3,1) 0.35s both;
+}
+
+.hero-banner .thumbnail {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1),
+              filter 0.4s ease;
+  will-change: transform;
+}
+
+.hero-banner .thumbnail:hover {
+  transform: scale(1.025) translateY(-6px);
+  filter: brightness(1.04);
+}
+
+/* Hero title shimmer on hover */
+.hero-banner .title {
+  background: linear-gradient(
+    90deg,
+    var(--text-dark) 0%,
+    var(--primary) 40%,
+    var(--text-dark) 80%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.4s ease;
+}
+
+.hero-banner .title:hover {
+  animation: shimmer 2s linear infinite;
+}
+
+/* Hero CTA btn pulse */
+.hero-banner .btn-pill {
+  animation: pulse-ring 2.5s cubic-bezier(0.455,0.03,0.515,0.955) 1.2s 3;
+}
+
+/* Hero floating badge */
+.experience-badge {
+  animation: badge-pop 0.7s cubic-bezier(0.175,0.885,0.32,1.275) 0.9s both;
+}
+
+
+/* ─── 4. NAVBAR ───────────────────────────────────────────── */
+
+.fixed-header {
+  transition: background-color 0.4s ease,
+              box-shadow 0.4s ease,
+              backdrop-filter 0.4s ease;
+  backdrop-filter: blur(0px);
+}
+
+.fixed-header.scrolled {
+  backdrop-filter: blur(16px) saturate(1.4);
+  box-shadow: 0 4px 32px rgba(221,150,138,0.12);
+}
+
+/* Nav link underline grow */
+.desktop-nav a::after,
+.desktop-nav .services-nav-link::after {
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1) !important;
+}
+
+/* Logo hover float */
+.logo-area {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+
+.logo-area:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+/* Mobile drawer smooth */
+.mobile-drawer {
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.3s ease !important;
+  transform: translateX(100%) !important;
+  opacity: 0 !important;
+}
+
+.mobile-drawer.active {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+}
+
+/* Mega menu fade-slide */
+.mega-menu-wrapper {
+  transform: translateY(8px) !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1) !important;
+  pointer-events: none !important;
+}
+
+.nav-item-services:hover .mega-menu-wrapper {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Phone widget hover */
+.phone-widget {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phone-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(221,150,138,0.25);
+}
+
+.phone-icon-circle {
+  animation: pulse-ring 3s ease 4s 3;
+  transition: transform 0.3s ease;
+}
+
+.phone-widget:hover .phone-icon-circle {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+
+/* ─── 5. SECTION TITLES ───────────────────────────────────── */
+
+.section-title-wrapper {
+  position: relative;
+}
+
+.section-subtitle {
+  letter-spacing: 3px;
+  position: relative;
+  display: inline-block !important;
+}
+
+.section-subtitle::before,
+.section-subtitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 24px;
+  background: var(--primary);
+  opacity: 0.5;
+}
+
+.section-subtitle::before { right: calc(100% + 8px); }
+.section-subtitle::after  { left:  calc(100% + 8px); }
+
+/* Animated underline for section-title */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 60px;
+  height: 2px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.section-title-wrapper.revealed .section-title::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+
+/* ─── 6. SERVICE / TREATMENT CARDS ───────────────────────── */
+
+/* Generic card lift + border glow */
+.hp-feature-card,
+.contact-info-card,
+.testimonial-card,
+.walkthrough-box,
+.stat-item,
+.benefit-item {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.4s cubic-bezier(0.16,1,0.3,1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
+.hp-feature-card:hover,
+.contact-info-card:hover,
+.walkthrough-box:hover {
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: 0 20px 50px rgba(221,150,138,0.20),
+              0 4px 12px rgba(221,150,138,0.12);
+  border-color: var(--primary-light);
+}
+
+/* Feature icon pop */
+.hp-feature-icon,
+.feature-icon-circle,
+.card-icon-wrapper,
+.panel-icon,
+.benefit-icon {
+  transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.hp-feature-card:hover .hp-feature-icon,
+.about-feature-item:hover .feature-icon-circle,
+.contact-info-card:hover .card-icon-wrapper,
+.contact-info-card:hover .panel-icon {
+  transform: scale(1.2) rotate(-5deg);
+  box-shadow: 0 6px 20px rgba(221,150,138,0.3);
+}
+
+/* Testimonial card depth */
+.testimonial-card {
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.45s cubic-bezier(0.16,1,0.3,1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow: 0 24px 60px rgba(221,150,138,0.22);
+}
+
+/* Testimonial stars sparkle */
+.testimonial-stars,
+.stars,
+.rating {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.testimonial-card:hover .testimonial-stars {
+  animation: float-gentle 1.5s ease-in-out;
+}
+
+
+/* ─── 7. STATS STRIP ──────────────────────────────────────── */
+
+.stats-strip,
+.stats-grid {
+  perspective: 800px;
+}
+
+.stat-item {
+  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.4s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 16px 40px rgba(221,150,138,0.18);
+}
+
+.stat-number {
+  position: relative;
+  display: inline-block;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+  transform: scale(1.08);
+}
+
+
+/* ─── 8. BUTTONS ──────────────────────────────────────────── */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Ripple on click */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+  transform: scale(0);
+  border-radius: inherit;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn:active::after {
+  transform: scale(2.5);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Primary button shimmer sweep */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255,255,255,0.25) 50%,
+    transparent 60%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.btn-primary:hover::before {
+  left: 140%;
+}
+
+/* Back to top spring */
+.back-to-top {
+  transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),
+              opacity 0.4s ease,
+              box-shadow 0.3s ease !important;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px) scale(1.1) !important;
+  box-shadow: 0 12px 28px rgba(221,150,138,0.4) !important;
+}
+
+
+/* ─── 9. ABOUT SECTION ────────────────────────────────────── */
+
+.about-image-wrapper,
+.hp-img-col {
+  position: relative;
+}
+
+/* Subtle floating on doctor photo */
+.doctor-main-photo,
+.hp-img-frame img {
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.5s ease,
+              filter 0.4s ease;
+  animation: float-gentle 7s ease-in-out infinite;
+}
+
+.doctor-main-photo:hover,
+.hp-img-frame img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.04) contrast(1.02);
+  animation-play-state: paused;
+}
+
+/* Decorative ring around doctor frame */
+.doctor-frame::before {
+  content: '';
+  position: absolute;
+  inset: -12px;
+  border-radius: inherit;
+  border: 1.5px dashed rgba(221,150,138,0.3);
+  animation: rotate-slow 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Feature item hover lift */
+.about-feature-item {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.35s ease;
+}
+
+.about-feature-item:hover {
+  transform: translateX(6px);
+  box-shadow: -4px 0 0 var(--primary);
+}
+
+
+/* ─── 10. MARQUEE STRIP ───────────────────────────────────── */
+
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fade edges */
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+.marquee-item {
+  animation: marquee-glow 4s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.3s);
+}
+
+.marquee-item:hover {
+  color: #fff !important;
+}
+
+.marquee-item span {
+  transition: transform 0.3s ease;
+}
+
+.marquee-item:hover span {
+  transform: scale(1.3) rotate(10deg);
+  display: inline-block;
+}
+
+/* Pause on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+
+/* ─── 11. BOOKING / CTA SECTION ──────────────────────────── */
+
+.booking-cta-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-cta-section::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(221,150,138,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-gentle 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta-title {
+  transition: letter-spacing 0.4s ease;
+}
+
+.booking-cta-section:hover .cta-title {
+  letter-spacing: 0.5px;
+}
+
+
+/* ─── 12. FORM FIELDS ─────────────────────────────────────── */
+
+.floating-underline-group input,
+.floating-underline-group select,
+.floating-underline-group textarea {
+  transition: border-color 0.3s ease,
+              background-color 0.3s ease,
+              padding-left 0.3s ease !important;
+}
+
+.floating-underline-group input:focus,
+.floating-underline-group select:focus,
+.floating-underline-group textarea:focus {
+  padding-left: 10px !important;
+  background-color: rgba(221,150,138,0.03) !important;
+}
+
+.floating-underline-group label {
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1) !important;
+}
+
+
+/* ─── 13. FAQ ACCORDION ───────────────────────────────────── */
+
+.faq-item {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  box-shadow: 0 8px 24px rgba(221,150,138,0.14);
+  transform: translateY(-2px);
+}
+
+.faq-answer {
+  transition: max-height 0.45s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.35s ease !important;
+}
+
+.faq-question-row {
+  transition: color 0.25s ease;
+}
+
+.faq-question-row:hover {
+  color: var(--primary) !important;
+}
+
+
+/* ─── 14. FOOTER ──────────────────────────────────────────── */
+
+.footer-links a {
+  position: relative;
+  transition: color 0.25s ease, padding-left 0.3s ease;
+}
+
+.footer-links a::before {
+  content: '→';
+  position: absolute;
+  left: -18px;
+  opacity: 0;
+  transition: opacity 0.25s ease, left 0.25s ease;
+  color: var(--primary);
+  font-size: .75em;
+}
+
+.footer-links a:hover {
+  color: var(--primary) !important;
+  padding-left: 18px;
+}
+
+.footer-links a:hover::before {
+  opacity: 1;
+  left: 0;
+}
+
+/* Social icons pop */
+.social-icon {
+  transition: transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275),
+              box-shadow 0.3s ease,
+              background-color 0.3s ease !important;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px) scale(1.15) rotate(-5deg) !important;
+  box-shadow: 0 8px 20px rgba(221,150,138,0.35) !important;
+}
+
+
+/* ─── 15. WALKTHROUGH / STEPS ─────────────────────────────── */
+
+.walkthrough-box {
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1),
+              box-shadow 0.45s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.walkthrough-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(221,150,138,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.walkthrough-box:hover::after {
+  opacity: 1;
+}
+
+.step-badge {
+  transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+.walkthrough-box:hover .step-badge {
+  transform: scale(1.2) rotate(-6deg);
+}
+
+
+/* ─── 16. SERVICE DETAIL PAGE ─────────────────────────────── */
+
+.service-detail-img {
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1),
+              filter 0.4s ease;
+}
+
+.service-detail-img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05);
+}
+
+.benefits-list .benefit-item {
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.3s ease;
+}
+
+.benefits-list .benefit-item:hover {
+  transform: translateX(8px);
+}
+
+
+/* ─── 17. APPOINTMENT MODAL ───────────────────────────────── */
+
+.modal-backdrop {
+  transition: opacity 0.35s ease !important;
+}
+
+.modal-content {
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1),
+              opacity 0.4s ease !important;
+  transform: translateY(30px) scale(0.97) !important;
+  opacity: 0 !important;
+}
+
+.modal-backdrop.active .modal-content {
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* Success screen pop */
+.success-icon {
+  animation: badge-pop 0.6s cubic-bezier(0.175,0.885,0.32,1.275) both;
+}
+
+.success-title {
+  animation: floatUp 0.5s cubic-bezier(0.16,1,0.3,1) 0.15s both;
+}
+
+.success-desc {
+  animation: floatUp 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+
+
+/* ─── 18. TAGS / CHIPS ────────────────────────────────────── */
+
+.hp-tag,
+.category-tag {
+  transition: background-color 0.25s ease,
+              transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275),
+              box-shadow 0.25s ease;
+}
+
+.hp-tag:hover,
+.category-tag:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(221,150,138,0.25);
+}
+
+
+/* ─── 19. PAGE LOAD SEQUENCE ──────────────────────────────── */
+
+/* Staggered entrance for above-the-fold content */
+.fixed-header {
+  animation: floatUp 0.6s cubic-bezier(0.16,1,0.3,1) 0.05s both;
+}
+
+#hero .hero-content .title {
+  animation: revealLeft 1s cubic-bezier(0.16,1,0.3,1) 0.25s both;
+}
+
+#hero .hero-content .content-bx {
+  animation: floatUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.45s both;
+}
+
+#hero .hero-content .btn-wrapper {
+  animation: floatUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s both;
+}
+
+
+/* ─── 20. SCROLL OBSERVER SCRIPT (inline) ────────────────── */
+/*
+   Paste this <script> into your index.html before </body>:
+
+   <script>
+     const obs = new IntersectionObserver((entries) => {
+       entries.forEach(e => {
+         if (e.isIntersecting) {
+           e.target.classList.add('revealed');
+           obs.unobserve(e.target);
+         }
+       });
+     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+     document.querySelectorAll(
+       '.section-title-wrapper, .hp-feature-card, .stat-item, ' +
+       '.testimonial-card, .walkthrough-box, .about-feature-item, ' +
+       '.contact-info-card, .faq-item, .walkthrough-step, ' +
+       '[data-reveal], [data-stagger]'
+     ).forEach(el => obs.observe(el));
+   </script>
+*/
+
+/* ─── 21. DARK MODE ADJUSTMENTS ───────────────────────────── */
+
+[data-theme="dark"] .hero-banner::before {
+  background: radial-gradient(circle, rgba(221,150,138,0.07) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .doctor-frame::before {
+  border-color: rgba(221,150,138,0.18);
+}
+
+[data-theme="dark"] .marquee-container::before {
+  background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+[data-theme="dark"] .marquee-container::after {
+  background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+[data-theme="dark"] .section-title {
+  -webkit-text-fill-color: var(--text-dark);
+  background: none;
+}
+
+[data-theme="dark"] .stat-number {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
