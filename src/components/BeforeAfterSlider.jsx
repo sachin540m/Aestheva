@@ -21,13 +21,13 @@ export default function BeforeAfterSlider() {
               <ReactCompareSlider
                 itemOne={
                   <div className="slider-item-wrapper">
-                    <ReactCompareSliderImage src={`${import.meta.env.BASE_URL}before_skin.png`} alt="Skin before treatment" />
+                    <ReactCompareSliderImage src="/before_skin.png" alt="Skin before treatment" />
                     <span className="slider-badge before-badge">Before</span>
                   </div>
                 }
                 itemTwo={
                   <div className="slider-item-wrapper">
-                    <ReactCompareSliderImage src={`${import.meta.env.BASE_URL}after_skin.png`} alt="Skin after treatment" />
+                    <ReactCompareSliderImage src="/after_skin.png" alt="Skin after treatment" />
                     <span className="slider-badge after-badge">After</span>
                   </div>
                 }
@@ -55,7 +55,7 @@ export default function BeforeAfterSlider() {
               <p className="info-para">
                 This case demonstrates the results of our advanced skin rejuvenation therapy over a 6-week period. By targeting deep skin layers, we stimulate collagen production, reduce pigmentation, and heal active acne lesions.
               </p>
-              
+
               <div className="results-list">
                 <div className="result-item">
                   <span className="result-number">98%</span>

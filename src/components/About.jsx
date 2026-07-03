@@ -11,20 +11,20 @@ export default function About({ isPage = false }) {
     {
       title: "Acne Scar Correction",
       description: "6 sessions of clinical microneedling + chemical peels",
-      beforeImg: `${import.meta.env.BASE_URL}before_acne.png`,
-      afterImg: `${import.meta.env.BASE_URL}after_acne.png`
+      beforeImg: "/before_acne.png",
+      afterImg: "/after_acne.png"
     },
     {
       title: "Skin Rejuvenation & Pigmentation",
       description: "4 sessions of GFC + advanced carbon laser toning",
-      beforeImg: `${import.meta.env.BASE_URL}before_pigmentation.png`,
-      afterImg: `${import.meta.env.BASE_URL}after_pigmentation.png`
+      beforeImg: "/before_pigmentation.png",
+      afterImg: "/after_pigmentation.png"
     },
     {
       title: "Open Pores Treatment",
       description: "3 sessions of MNRF (Microneedle RF)",
-      beforeImg: `${import.meta.env.BASE_URL}before_pores.png`,
-      afterImg: `${import.meta.env.BASE_URL}after_pores.png`
+      beforeImg: "/before_pores.png",
+      afterImg: "/after_pores.png"
     }
   ];
 
@@ -81,19 +81,19 @@ export default function About({ isPage = false }) {
       <section className="about-intro-section section-padding">
         <div className="container">
           <div className="about-grid-layout">
-            
+
             {/* Left Column: Image with Experience Badge */}
             <div className="about-image-wrapper">
               <div className="doctor-frame">
-                <img src={`${import.meta.env.BASE_URL}dr-ketaki2.jpeg`} alt="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" />
+                <img src="/dr-ketaki2.jpeg" alt="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" />
                 <div className="experience-badge">
                   <span className="exp-number">5+</span>
-                  <span className="exp-text">Years<br/>experience</span>
+                  <span className="exp-text">Years<br />experience</span>
                 </div>
               </div>
             </div>
 
-             {/* Right Column: Credentials and Text */}
+            {/* Right Column: Credentials and Text */}
             <div className="about-details-wrapper">
               {isPage ? (
                 <>
@@ -107,11 +107,11 @@ export default function About({ isPage = false }) {
                     <span className="cred-badge">Ayurvedic Dermatology</span>
                   </div>
                   <p className="cred-fullname">Bachelor of Ayurvedic Medicine &amp; Surgery</p>
-                  
+
                   <p className="about-paragraph">
                     Experience exceptional beauty and wellness at Aesthéva. Under the clinical leadership of Dr. Ketaki, our expert team blends advanced technology with trusted clinical expertise to create personalized treatments and deliver beautiful, natural-looking results that inspire confidence.
                   </p>
-                  
+
                   <p className="about-paragraph secondary">
                     We take the time to understand your unique concerns, crafting personalized treatment plans that nurture your skin and hair health from within. We prioritize long-term skin integrity and patient education over temporary cosmetic quick-fixes.
                   </p>
@@ -121,11 +121,11 @@ export default function About({ isPage = false }) {
                   <span className="about-subtitle">WELCOME TO AESTHÉVA</span>
                   <h2 className="about-main-title">Restoring Skin & Hair Health</h2>
                   <h4 className="doctor-subtitle">Professional Medical Aesthetics in Sanpada</h4>
-                  
+
                   <p className="about-paragraph">
                     At Aesthéva, we believe in enhancing your natural features through medically-supervised aesthetic care. Our state-of-the-art clinic in Sanpada offers a curated selection of advanced skin, hair, and laser treatments customized to your unique wellness goals.
                   </p>
-                  
+
                   <p className="about-paragraph secondary">
                     From precision laser hair removal to targeted acne and anti-aging management, we combine gold-standard medical technology with a patient-centric philosophy. We believe that true rejuvenation is achieved through personalized, long-term health plans rather than quick cosmetic fixes.
                   </p>
@@ -173,11 +173,11 @@ export default function About({ isPage = false }) {
                 Click on any case below to open our interactive high-resolution Before & After slider.
               </p>
             </div>
-            
+
             <div className="gallery-grid">
               {cases.map((c, idx) => (
-                <div 
-                  className="gallery-media-card case-card" 
+                <div
+                  className="gallery-media-card case-card"
                   key={idx}
                   onClick={() => setActiveCaseIdx(idx)}
                 >
@@ -209,7 +209,7 @@ export default function About({ isPage = false }) {
             <div className="lightbox-body">
               <h3 className="lightbox-title">{cases[activeCaseIdx].title}</h3>
               <p className="lightbox-desc">{cases[activeCaseIdx].description}</p>
-              
+
               <div className="lightbox-slider-wrap">
                 <ReactCompareSlider
                   itemOne={
@@ -246,7 +246,7 @@ export default function About({ isPage = false }) {
         /* 1. Hero Banner */
         .about-hero-banner {
           position: relative;
-          background-image: url('${import.meta.env.BASE_URL}about-banner.png');
+          background-image: url('/about-banner.png');
           background-size: cover;
           background-position: left 48%;
           padding: 12rem 0 10rem 0;

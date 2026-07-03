@@ -204,8 +204,8 @@ export default function ServiceDetail({ onBookClick }) {
         <div className="banner-bg-split">
           <div className="banner-bg-left"></div>
           {service.imageUrl && (
-            <div 
-              className="banner-bg-right" 
+            <div
+              className="banner-bg-right"
               style={{ backgroundImage: `url(${service.imageUrl})` }}
             ></div>
           )}
@@ -213,11 +213,11 @@ export default function ServiceDetail({ onBookClick }) {
 
         {/* Mini Logo — bottom-right of banner */}
         <img
-          src={`${import.meta.env.BASE_URL}minilogo.jpg`}
+          src="/minilogo.jpg"
           alt="Aesthéva"
           className="banner-minilogo"
         />
-        
+
         <div className="container banner-container">
           <Link to="/" className="back-link-dark">
             <ArrowLeft size={16} />
@@ -228,7 +228,7 @@ export default function ServiceDetail({ onBookClick }) {
             <span className="banner-category">{service.category.toUpperCase()} TREATMENT</span>
             <h1 className="banner-title">{service.title}</h1>
             <p className="banner-desc">{service.shortDesc}</p>
-            
+
             <div className="banner-actions">
               <button className="btn-appointment" onClick={() => onBookClick(service.title)}>
                 <span>Appointment</span>
@@ -236,7 +236,7 @@ export default function ServiceDetail({ onBookClick }) {
                   <ArrowRight size={16} />
                 </span>
               </button>
-              
+
               <a href="tel:+919136611998" className="banner-contact">
                 <div className="contact-icon-circle">
                   <Phone size={20} />

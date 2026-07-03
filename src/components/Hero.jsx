@@ -22,13 +22,11 @@ export default function Hero({ onBookClick }) {
 
   useEffect(() => {
     let index = 0;
-    let current = "";
+    setTypedText("");
     const interval = setInterval(() => {
-      if (index < subtitleText.length) {
-        current += subtitleText.charAt(index);
-        setTypedText(current);
-        index++;
-      } else {
+      setTypedText((prev) => prev + subtitleText.charAt(index));
+      index++;
+      if (index >= subtitleText.length) {
         clearInterval(interval);
       }
     }, 25);
@@ -38,13 +36,13 @@ export default function Hero({ onBookClick }) {
   useGSAP(() => {
     // Character reveal animation
     const chars = titleRef.current.querySelectorAll('.char');
-    gsap.fromTo(chars, 
+    gsap.fromTo(chars,
       { opacity: 0, y: 30 },
-      { 
-        opacity: 1, 
-        y: 0, 
-        duration: 0.6, 
-        stagger: 0.02, 
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.02,
         ease: "power4.out",
         delay: 0.2
       }
@@ -106,7 +104,7 @@ export default function Hero({ onBookClick }) {
                     </span>
                   ))}
                 </h1>
-                
+
                 <div className="content-bx style-2 secondary m-b40">
                   {typedText}
                   <span className="typewriter-cursor">|</span>
@@ -122,10 +120,10 @@ export default function Hero({ onBookClick }) {
                 </div>
               </div>
             </div>
-            
+
             <div className="col-md-6 align-self-end img-column">
               <div className="hero-thumbnail" style={{ overflow: 'hidden' }}>
-                 <img ref={imgRef} className="thumbnail" src={`${import.meta.env.BASE_URL}hero-banner.png`} alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
+                <img ref={imgRef} className="thumbnail" src="/hero-banner.png" alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
               </div>
             </div>
           </div>
@@ -139,7 +137,7 @@ export default function Hero({ onBookClick }) {
           </svg>
         </div>
       </div>
-      
+
       {/* Right floating rating widget */}
       <div className="widget-rating-right">
         <ul className="star-list">

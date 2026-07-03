@@ -6,7 +6,7 @@ export const servicesData = [
     shortDesc: "Revitalize your skin with customized therapies for a youthful, radiant glow.",
     category: "skin",
     iconName: "Sparkles",
-    imageUrl: new URL('../assets/skinrejuvenation.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/skinrejuvenation.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 - 60 mins",
       downtime: "None to minimal redness",
@@ -42,7 +42,7 @@ export const servicesData = [
     shortDesc: "Effective dermatologist-guided treatments to clear acne and prevent future breakouts.",
     category: "skin",
     iconName: "ShieldAlert",
-    imageUrl: new URL('../assets/acnemanagement.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/acne management.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None",
@@ -78,7 +78,7 @@ export const servicesData = [
     shortDesc: "Even out skin tone and reduce dark patches with safe, proven treatments.",
     category: "skin",
     iconName: "Layers",
-    imageUrl: new URL('../assets/darkspotsfreckles.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/darkspotsfreckles.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 - 60 mins",
       downtime: "Minimal (slight peeling or redness for 1-2 days)",
@@ -114,7 +114,7 @@ export const servicesData = [
     shortDesc: "Restore firmness and smooth fine lines for naturally youthful skin.",
     category: "aesthetic",
     iconName: "TrendingDown",
-    imageUrl: new URL('../assets/antiagingtreatment.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/anti aging.png', import.meta.url).href,
     sessionInfo: {
       duration: "60 mins",
       downtime: "1 - 2 days of mild swelling or redness",
@@ -150,7 +150,7 @@ export const servicesData = [
     shortDesc: "Brighten and detoxify your skin from within with antioxidant therapy.",
     category: "aesthetic",
     iconName: "Droplet",
-    imageUrl: new URL('../assets/glutathioneivdrip.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/glutathioneivdrip.png', import.meta.url).href,
     sessionInfo: {
       duration: "30 mins",
       downtime: "None",
@@ -186,7 +186,7 @@ export const servicesData = [
     shortDesc: "Lift and tighten skin without surgery using the latest technology.",
     category: "aesthetic",
     iconName: "Smile",
-    imageUrl: new URL('../assets/facelift.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/facelift.png', import.meta.url).href,
     sessionInfo: {
       duration: "60 - 90 mins",
       downtime: "None",
@@ -222,7 +222,7 @@ export const servicesData = [
     shortDesc: "It can help reduce fine lines, wrinkles, and hair loss, revealing smoother, healthier-looking skin and hair.",
     category: "aesthetic",
     iconName: "Zap",
-    imageUrl: new URL('../assets/exosomesforskin.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/exosomesforskin.png', import.meta.url).href,
     sessionInfo: {
       duration: "60 mins",
       downtime: "12 - 24 hours of mild redness",
@@ -260,7 +260,7 @@ export const servicesData = [
     shortDesc: "Remove dull, damaged skin and reveal a fresh, healthy layer.",
     category: "skin",
     iconName: "Sparkles",
-    imageUrl: new URL('../assets/chemicalpeel.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/chemicalpeel.png', import.meta.url).href,
     sessionInfo: {
       duration: "30 mins",
       downtime: "2 - 5 days of mild flaking/dryness",
@@ -298,7 +298,7 @@ export const servicesData = [
     shortDesc: "Harness your body's growth factors to rejuvenate skin and promote hair growth.",
     category: "hair",
     iconName: "Activity",
-    imageUrl: new URL('../assets/PRPGFCTherapy.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/PRPGFCTherapy.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None (slight scalp tenderness for 1 day)",
@@ -334,7 +334,7 @@ export const servicesData = [
     shortDesc: "Refine skin texture and reduce pores for smoother, clearer skin.",
     category: "skin",
     iconName: "Grid",
-    imageUrl: new URL('../assets/microneedling.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/microneedling.png', import.meta.url).href,
     sessionInfo: {
       duration: "60 mins",
       downtime: "1 - 2 days of pinkness/dryness",
@@ -370,7 +370,7 @@ export const servicesData = [
     shortDesc: "Nourish and revitalize skin with vitamin-rich microinjections.",
     category: "skin",
     iconName: "Sparkles",
-    imageUrl: new URL('../assets/mesotherapy.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/mesotherapy.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None to minimal swelling",
@@ -406,7 +406,7 @@ export const servicesData = [
     shortDesc: "Fade pigmentation for an even and luminous complexion.",
     category: "skin",
     iconName: "Target",
-    imageUrl: new URL('../assets/darkspotsfreckles.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/darkspotsfreckles.png', import.meta.url).href,
     sessionInfo: {
       duration: "30 - 45 mins",
       downtime: "3 - 5 days (freckles darken slightly before flaking off)",
@@ -442,7 +442,7 @@ export const servicesData = [
     shortDesc: "Get visibly radiant and glowing skin with safe brightening therapies.",
     category: "skin",
     iconName: "Sparkles",
-    imageUrl: new URL('../assets/skinbrightening.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/skinbrightening.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None",
@@ -478,7 +478,7 @@ export const servicesData = [
     shortDesc: "Stimulate natural hair regrowth and strengthen your scalp health.",
     category: "hair",
     iconName: "TrendingUp",
-    imageUrl: new URL('../assets/hairfallalopecia.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/hairfallalopecia.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 - 60 mins",
       downtime: "None",
@@ -514,7 +514,7 @@ export const servicesData = [
     shortDesc: "Target the root cause of dandruff for a clean, healthy scalp.",
     category: "hair",
     iconName: "Activity",
-    imageUrl: new URL('../assets/dandrufftreatment.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/dandruff.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None",
@@ -550,7 +550,7 @@ export const servicesData = [
     shortDesc: "Exsosomes treatment uses tiny vesicles to stimulate collagen production, improve skin elasticity, and promote hair growth.",
     category: "hair",
     iconName: "Zap",
-    imageUrl: new URL('../assets/exsosomesforhair.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/exsosomesforhair.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None (scalp redness for a few hours)",
@@ -588,7 +588,7 @@ export const servicesData = [
     shortDesc: "Smooth, hair-free skin with long-lasting laser technology.",
     category: "laser",
     iconName: "Flame",
-    imageUrl: new URL('../assets/laserhairremoval.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/laserhairremoval.png', import.meta.url).href,
     sessionInfo: {
       duration: "15 - 90 mins (depending on area)",
       downtime: "None (mild redness for a few hours)",
@@ -624,7 +624,7 @@ export const servicesData = [
     shortDesc: "Laser-based treatments for youthful, blemish-free, and refreshed skin.",
     category: "laser",
     iconName: "Zap",
-    imageUrl: new URL('../assets/photorejuvenationcarbonlaser.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/photorejuvenationcarbonlaser.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 mins",
       downtime: "None",
@@ -660,7 +660,7 @@ export const servicesData = [
     shortDesc: "Erase unwanted tattoos safely with advanced laser precision.",
     category: "laser",
     iconName: "Trash2",
-    imageUrl: new URL('../assets/tattooremoval.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/tattooremoval.png', import.meta.url).href,
     sessionInfo: {
       duration: "15 - 45 mins",
       downtime: "5 - 7 days (crusting or minor blistering)",
@@ -696,7 +696,7 @@ export const servicesData = [
     shortDesc: "Quick and scar-free removal of unwanted growths.",
     category: "laser",
     iconName: "Scissors",
-    imageUrl: new URL('../assets/skintagsmoleremoval.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/skintagsmoleremoval.png', import.meta.url).href,
     sessionInfo: {
       duration: "15 - 30 mins",
       downtime: "3 - 7 days for healing",
@@ -732,7 +732,7 @@ export const servicesData = [
     shortDesc: "Safe and effective solutions for various skin and hair concerns.",
     category: "laser",
     iconName: "Flame",
-    imageUrl: new URL('../assets/lasertreatments.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/lasertreatments.png', import.meta.url).href,
     sessionInfo: {
       duration: "30 - 60 mins",
       downtime: "Varies (0 to 3 days depending on target)",
@@ -768,7 +768,7 @@ export const servicesData = [
     shortDesc: "Minimize scars with advanced laser and microneedling procedures.",
     category: "laser",
     iconName: "Scissors",
-    imageUrl: new URL('../assets/scarreduction.jpg', import.meta.url).href,
+    imageUrl: new URL('../assets/scarreduction.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 - 60 mins",
       downtime: "2 - 4 days of redness and swelling",
