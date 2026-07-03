@@ -1,0 +1,574 @@
+import{a as e}from"./rolldown-runtime-Cyuzqnbw.js";import{a as t,n,p as r,t as i}from"./vendor-react-BbYjAYeo.js";import{n as a,t as o}from"./vendor-utils-bg_2gNJs.js";import{C as s,D as c,c as l,r as u,s as d,t as f}from"./vendor-lucide-Cnss62YS.js";var p=e(r(),1),m=i();function h({isPage:e=!1}){let[r,i]=(0,p.useState)(null),h=[{title:`Acne Scar Correction`,description:`6 sessions of clinical microneedling + chemical peels`,beforeImg:`/before_acne.png`,afterImg:`/after_acne.png`},{title:`Skin Rejuvenation & Pigmentation`,description:`4 sessions of GFC + advanced carbon laser toning`,beforeImg:`/before_pigmentation.png`,afterImg:`/after_pigmentation.png`},{title:`Open Pores Treatment`,description:`3 sessions of MNRF (Microneedle RF)`,beforeImg:`/before_pores.png`,afterImg:`/after_pores.png`}];return(0,m.jsxs)(`div`,{id:`about`,className:`about-page-container`,children:[e&&(0,m.jsxs)(n,{children:[(0,m.jsx)(`title`,{children:`About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai`}),(0,m.jsx)(`meta`,{name:`description`,content:`Discover Dr. Ketaki Dongare - Bhoir, lead cosmetologist & aesthetic consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada.`}),(0,m.jsx)(`meta`,{property:`og:title`,content:`About Dr. Ketaki & Aesthéva Clinic`}),(0,m.jsx)(`meta`,{property:`og:description`,content:`Advanced dermatologist-led skin and hair treatments in Navi Mumbai.`})]}),e&&(0,m.jsxs)(`section`,{className:`about-hero-banner`,children:[(0,m.jsx)(`div`,{className:`banner-overlay`}),(0,m.jsxs)(`div`,{className:`container banner-content text-center`,children:[(0,m.jsx)(`h1`,{className:`banner-title`,children:`About Us`}),(0,m.jsxs)(`div`,{className:`breadcrumbs`,children:[(0,m.jsx)(t,{to:`/`,children:`Home`}),(0,m.jsx)(`span`,{className:`separator`,children:`»`}),(0,m.jsx)(`span`,{className:`current`,children:`About Us`})]})]})]}),(0,m.jsx)(`section`,{className:`about-intro-section section-padding`,children:(0,m.jsx)(`div`,{className:`container`,children:(0,m.jsxs)(`div`,{className:`about-grid-layout`,children:[(0,m.jsx)(`div`,{className:`about-image-wrapper`,children:(0,m.jsxs)(`div`,{className:`doctor-frame`,children:[(0,m.jsx)(`img`,{src:`/dr-ketaki2.jpeg`,alt:`Dr. Ketaki Dongare - Bhoir`,className:`doctor-main-photo`,loading:`lazy`}),(0,m.jsxs)(`div`,{className:`experience-badge`,children:[(0,m.jsx)(`span`,{className:`exp-number`,children:`5+`}),(0,m.jsxs)(`span`,{className:`exp-text`,children:[`Years`,(0,m.jsx)(`br`,{}),`experience`]})]})]})}),(0,m.jsxs)(`div`,{className:`about-details-wrapper`,children:[e?(0,m.jsxs)(m.Fragment,{children:[(0,m.jsx)(`span`,{className:`about-subtitle`,children:`About Doctor`}),(0,m.jsx)(`h2`,{className:`about-main-title`,children:`Dr. Ketaki Dongare - Bhoir`}),(0,m.jsxs)(`div`,{className:`doctor-credentials`,children:[(0,m.jsx)(`span`,{className:`cred-badge`,children:`BAMS`}),(0,m.jsx)(`span`,{className:`cred-badge`,children:`Cosmetologist`}),(0,m.jsx)(`span`,{className:`cred-badge`,children:`Trichologist`}),(0,m.jsx)(`span`,{className:`cred-badge`,children:`Clinical Aesthetician`}),(0,m.jsx)(`span`,{className:`cred-badge`,children:`Ayurvedic Dermatology`})]}),(0,m.jsx)(`p`,{className:`cred-fullname`,children:`Bachelor of Ayurvedic Medicine & Surgery`}),(0,m.jsx)(`p`,{className:`about-paragraph`,children:`Experience exceptional beauty and wellness at Aesthéva. Under the clinical leadership of Dr. Ketaki, our expert team blends advanced technology with trusted clinical expertise to create personalized treatments and deliver beautiful, natural-looking results that inspire confidence.`}),(0,m.jsx)(`p`,{className:`about-paragraph secondary`,children:`We take the time to understand your unique concerns, crafting personalized treatment plans that nurture your skin and hair health from within. We prioritize long-term skin integrity and patient education over temporary cosmetic quick-fixes.`})]}):(0,m.jsxs)(m.Fragment,{children:[(0,m.jsx)(`span`,{className:`about-subtitle`,children:`WELCOME TO AESTHÉVA`}),(0,m.jsx)(`h2`,{className:`about-main-title`,children:`Restoring Skin & Hair Health`}),(0,m.jsx)(`h4`,{className:`doctor-subtitle`,children:`Professional Medical Aesthetics in Sanpada`}),(0,m.jsx)(`p`,{className:`about-paragraph`,children:`At Aesthéva, we believe in enhancing your natural features through medically-supervised aesthetic care. Our state-of-the-art clinic in Sanpada offers a curated selection of advanced skin, hair, and laser treatments customized to your unique wellness goals.`}),(0,m.jsx)(`p`,{className:`about-paragraph secondary`,children:`From precision laser hair removal to targeted acne and anti-aging management, we combine gold-standard medical technology with a patient-centric philosophy. We believe that true rejuvenation is achieved through personalized, long-term health plans rather than quick cosmetic fixes.`})]}),e?(0,m.jsx)(`div`,{className:`about-features-columns`,children:[{icon:(0,m.jsx)(l,{size:22}),title:`Doctor-Led Care`,desc:`Expertise you can trust under direct guidance.`},{icon:(0,m.jsx)(d,{size:22}),title:`Advanced Technology`,desc:`Safe and effective clinical laser systems.`},{icon:(0,m.jsx)(c,{size:22}),title:`Personalised Approach`,desc:`Care customized precisely to your goals.`},{icon:(0,m.jsx)(s,{size:22}),title:`Ethical & Transparent`,desc:`Honest and medically guided care, always.`}].map((e,t)=>(0,m.jsxs)(`div`,{className:`about-feature-item`,children:[(0,m.jsx)(`div`,{className:`feature-icon-circle`,children:e.icon}),(0,m.jsxs)(`div`,{className:`feature-content`,children:[(0,m.jsx)(`h6`,{children:e.title}),(0,m.jsx)(`p`,{children:e.desc})]})]},t))}):(0,m.jsx)(`div`,{style:{marginTop:`2rem`},children:(0,m.jsx)(t,{to:`/about`,className:`btn btn-outline`,style:{display:`inline-block`},children:`Learn More About Us`})})]})]})})}),e&&(0,m.jsx)(`section`,{className:`about-gallery-section section-padding`,style:{paddingTop:`2rem`},children:(0,m.jsxs)(`div`,{className:`container`,children:[(0,m.jsxs)(`div`,{className:`section-title-wrapper text-center m-b40`,children:[(0,m.jsx)(`span`,{className:`section-subtitle`,children:`CLINICAL SHOWCASE`}),(0,m.jsx)(`h2`,{className:`section-title`,children:`Patient Transformations`}),(0,m.jsx)(`p`,{className:`section-description`,children:`Click on any case below to open our interactive high-resolution Before & After slider.`})]}),(0,m.jsx)(`div`,{className:`gallery-grid`,children:h.map((e,t)=>(0,m.jsxs)(`div`,{className:`gallery-media-card case-card`,onClick:()=>i(t),children:[(0,m.jsxs)(`div`,{className:`case-card-img-wrap`,children:[(0,m.jsx)(`img`,{src:e.afterImg,alt:e.title}),(0,m.jsxs)(`div`,{className:`case-card-hover-overlay`,children:[(0,m.jsx)(f,{size:24}),(0,m.jsx)(`span`,{children:`Compare Results`})]})]}),(0,m.jsxs)(`div`,{className:`case-card-details`,children:[(0,m.jsx)(`h5`,{children:e.title}),(0,m.jsx)(`p`,{children:e.description})]})]},t))})]})}),r!==null&&(0,m.jsx)(`div`,{className:`lightbox-backdrop`,onClick:()=>i(null),children:(0,m.jsxs)(`div`,{className:`lightbox-content`,onClick:e=>e.stopPropagation(),children:[(0,m.jsx)(`button`,{className:`lightbox-close`,onClick:()=>i(null),"aria-label":`Close Lightbox`,children:(0,m.jsx)(u,{size:24})}),(0,m.jsxs)(`div`,{className:`lightbox-body`,children:[(0,m.jsx)(`h3`,{className:`lightbox-title`,children:h[r].title}),(0,m.jsx)(`p`,{className:`lightbox-desc`,children:h[r].description}),(0,m.jsx)(`div`,{className:`lightbox-slider-wrap`,children:(0,m.jsx)(o,{itemOne:(0,m.jsxs)(`div`,{style:{position:`relative`,height:`100%`},children:[(0,m.jsx)(a,{src:h[r].beforeImg,alt:`Before`}),(0,m.jsx)(`span`,{className:`slider-badge before-badge`,children:`Before`})]}),itemTwo:(0,m.jsxs)(`div`,{style:{position:`relative`,height:`100%`},children:[(0,m.jsx)(a,{src:h[r].afterImg,alt:`After`}),(0,m.jsx)(`span`,{className:`slider-badge after-badge`,children:`After`})]}),style:{width:`100%`,height:`450px`,borderRadius:`12px`,overflow:`hidden`}})}),(0,m.jsx)(`div`,{className:`lightbox-hint`,children:`Drag the divider to compare the before & after transformation`})]})]})}),(0,m.jsx)(`style`,{children:`
+        .about-page-container {
+          background-color: var(--bg-primary);
+        }
+        
+        /* 1. Hero Banner */
+        .about-hero-banner {
+          position: relative;
+          background-image: url('/about-banner.png');
+          background-size: cover;
+          background-position: left 48%;
+          padding: 12rem 0 10rem 0;
+          color: white;
+        }
+        .banner-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(10, 28, 46, 0.7);
+          z-index: 1;
+        }
+        .banner-content {
+          position: relative;
+          z-index: 2;
+        }
+        .banner-title {
+          font-family: var(--font-serif);
+          font-size: 3rem;
+          font-weight: 600;
+          color: white;
+          margin-bottom: 1rem;
+        }
+        .breadcrumbs {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          background: rgba(255, 255, 255, 0.1);
+          padding: 0.4rem 1.2rem;
+          border-radius: 50px;
+          font-size: 0.88rem;
+          backdrop-filter: blur(5px);
+        }
+        .breadcrumbs a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          transition: color 0.3s ease;
+        }
+        .breadcrumbs a:hover {
+          color: var(--primary);
+        }
+        .breadcrumbs .separator {
+          color: rgba(255, 255, 255, 0.4);
+        }
+        .breadcrumbs .current {
+          color: var(--primary-light);
+          font-weight: 500;
+        }
+
+        /* 2. Main About Section */
+        .about-grid-layout {
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+          gap: 5rem;
+          align-items: center;
+        }
+        .about-image-wrapper {
+          position: relative;
+        }
+        .doctor-frame {
+          position: relative;
+          border-radius: 12px;
+          overflow: visible;
+          box-shadow: var(--shadow-lg);
+          aspect-ratio: 4/5;
+        }
+        .doctor-main-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 12px;
+          display: block;
+        }
+        .experience-badge {
+          position: absolute;
+          top: 30px;
+          left: -20px;
+          background: white;
+          color: var(--text-dark);
+          padding: 0.8rem 1.5rem;
+          border-radius: 8px;
+          box-shadow: var(--shadow-md);
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          z-index: 10;
+        }
+        .experience-badge .exp-number {
+          font-size: 2.2rem;
+          font-weight: 700;
+          color: var(--primary);
+          line-height: 1;
+        }
+        .experience-badge .exp-text {
+          font-size: 0.72rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-weight: 600;
+          color: var(--text-dark);
+          line-height: 1.2;
+        }
+
+        .about-details-wrapper {
+          display: flex;
+          flex-direction: column;
+        }
+        .about-subtitle {
+          display: inline-block;
+          color: var(--primary);
+          font-size: 0.95rem;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+          margin-bottom: 1rem;
+          padding: 0.4rem 1.2rem;
+          border-radius: 50px;
+          background: linear-gradient(90deg, rgba(221,150,138,0.25) 0%, rgba(221,150,138,0.05) 100%);
+        }
+        .about-main-title {
+          font-size: 2.8rem;
+          font-weight: 500;
+          margin-bottom: 0.2rem;
+        }
+        .doctor-subtitle {
+          font-family: var(--font-sans);
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: var(--primary);
+          margin-bottom: 1.8rem;
+        }
+        .about-paragraph {
+          font-size: 1.05rem;
+          line-height: 1.7;
+          margin-bottom: 1rem;
+          color: var(--text-dark);
+        }
+        .about-paragraph.secondary {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          margin-bottom: 2rem;
+        }
+
+        .about-features-columns {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.8rem;
+        }
+        .about-feature-item {
+          display: flex;
+          gap: 1rem;
+          align-items: flex-start;
+        }
+        .feature-icon-circle {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: rgba(221, 149, 137, 0.08);
+          color: var(--primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: all 0.3s ease;
+        }
+        .about-feature-item:hover .feature-icon-circle {
+          background: var(--primary);
+          color: white;
+        }
+        .feature-content h6 {
+          font-family: var(--font-sans);
+          font-size: 0.98rem;
+          font-weight: 600;
+          margin-bottom: 0.2rem;
+        }
+        .feature-content p {
+          font-size: 0.82rem;
+          color: var(--text-muted);
+          line-height: 1.4;
+        }
+
+        /* Gallery Grid Styles */
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        /* Gallery Card Styles */
+        .case-card {
+          background: var(--bg-secondary);
+          border: 1px solid var(--border-color);
+          border-radius: 12px;
+          cursor: pointer;
+          overflow: hidden;
+          transition: all 0.3s ease;
+          display: flex;
+          flex-direction: column;
+          height: auto !important;
+        }
+        .case-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-md);
+          border-color: var(--primary-light);
+        }
+        .case-card-img-wrap {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 4/3;
+          overflow: hidden;
+        }
+        .case-card-img-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .case-card-hover-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(10, 28, 46, 0.7);
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        .case-card:hover .case-card-hover-overlay {
+          opacity: 1;
+        }
+        .case-card-details {
+          padding: 1.5rem;
+        }
+        .case-card-details h5 {
+          font-family: var(--font-sans);
+          font-size: 1.05rem;
+          font-weight: 600;
+          margin-bottom: 0.4rem;
+        }
+        .case-card-details p {
+          font-size: 0.8rem;
+          color: var(--text-muted);
+          line-height: 1.4;
+        }
+
+        /* Lightbox Styles */
+        .lightbox-backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(10, 28, 46, 0.85);
+          backdrop-filter: blur(8px);
+          z-index: 11000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 1.5rem;
+        }
+        .lightbox-content {
+          background: var(--bg-primary);
+          border-radius: 16px;
+          border: 1px solid var(--border-color);
+          width: 100%;
+          max-width: 700px;
+          position: relative;
+          padding: 2.5rem;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-close {
+          position: absolute;
+          top: 1.2rem;
+          right: 1.2rem;
+          background: none;
+          border: none;
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: color 0.2s ease;
+        }
+        .lightbox-close:hover {
+          color: var(--text-dark);
+        }
+        .lightbox-title {
+          font-size: 1.8rem;
+          margin-bottom: 0.4rem;
+          text-align: center;
+          font-weight: 600;
+          color: var(--text-dark);
+        }
+        .lightbox-desc {
+          color: var(--text-muted);
+          font-size: 0.9rem;
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+        .lightbox-slider-wrap {
+          border: 1px solid var(--border-color);
+          padding: 6px;
+          border-radius: 14px;
+          background: var(--bg-secondary);
+        }
+        .lightbox-hint {
+          text-align: center;
+          font-size: 0.8rem;
+          color: var(--text-muted);
+          margin-top: 1rem;
+        }
+
+        .slider-badge {
+          position: absolute;
+          bottom: 1rem;
+          padding: 0.3rem 0.8rem;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          text-transform: uppercase;
+          color: white;
+          z-index: 10;
+          pointer-events: none;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .before-badge {
+          left: 1rem;
+          background: rgba(30, 40, 51, 0.85);
+          backdrop-filter: blur(4px);
+        }
+        .after-badge {
+          right: 1rem;
+          background: rgba(221, 150, 138, 0.85);
+          backdrop-filter: blur(4px);
+        }
+
+        /* Credentials */
+        .doctor-credentials {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          margin-bottom: 0.6rem;
+        }
+        .cred-badge {
+          display: inline-block;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.8px;
+          text-transform: uppercase;
+          color: var(--primary);
+          background: rgba(221, 149, 137, 0.12);
+          border: 1px solid rgba(221, 149, 137, 0.3);
+          padding: 3px 10px;
+          border-radius: 50px;
+        }
+        .cred-fullname {
+          font-size: 0.88rem;
+          color: var(--text-muted);
+          font-style: italic;
+          margin-bottom: 1.6rem;
+        }
+
+        /* Clinic Info Bar */
+        .clinic-info-bar {
+          background: var(--bg-secondary);
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+          padding: 2.5rem 0;
+        }
+        .clinic-info-grid {
+          display: flex;
+          align-items: center;
+          gap: 3rem;
+          flex-wrap: wrap;
+        }
+        .clinic-info-item {
+          display: flex;
+          align-items: flex-start;
+          gap: 1rem;
+          flex: 1;
+          min-width: 260px;
+        }
+        .clinic-info-icon {
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          background: rgba(221, 149, 137, 0.1);
+          color: var(--primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .clinic-info-item > div {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .clinic-info-label {
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--primary);
+        }
+        .clinic-info-value {
+          font-size: 0.92rem;
+          font-weight: 600;
+          color: var(--text-dark);
+        }
+        .clinic-info-closed {
+          font-size: 0.82rem;
+          color: #e05555;
+          font-weight: 500;
+        }
+        .clinic-info-divider {
+          width: 1px;
+          height: 60px;
+          background: var(--border-color);
+          flex-shrink: 0;
+        }
+
+        /* Map Section */
+        .clinic-map-section {
+          padding: 5rem 0;
+          background: var(--bg-primary);
+        }
+        .map-section-inner {
+          display: grid;
+          grid-template-columns: 380px 1fr;
+          gap: 0;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+          border: 1px solid var(--border-color);
+          min-height: 420px;
+        }
+        .map-info-panel {
+          background: var(--bg-secondary);
+          padding: 3rem 2.5rem;
+          display: flex;
+          flex-direction: column;
+          border-right: 1px solid var(--border-color);
+        }
+        .map-label {
+          display: inline-block;
+          font-size: 0.72rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          color: var(--primary);
+          background: rgba(221, 149, 137, 0.12);
+          padding: 4px 12px;
+          border-radius: 50px;
+          margin-bottom: 1.2rem;
+        }
+        .map-heading {
+          font-size: 1.6rem;
+          font-weight: 600;
+          color: var(--text-dark);
+          margin-bottom: 1rem;
+          line-height: 1.3;
+        }
+        .map-address {
+          font-size: 0.95rem;
+          color: var(--text-muted);
+          line-height: 1.7;
+          margin-bottom: 1.8rem;
+          padding-bottom: 1.8rem;
+          border-bottom: 1px solid var(--border-color);
+        }
+        .map-detail-row {
+          display: flex;
+          align-items: center;
+          gap: 0.6rem;
+          font-size: 0.88rem;
+          color: var(--text-dark);
+          font-weight: 500;
+          margin-bottom: 0.6rem;
+        }
+        .map-detail-row svg {
+          color: var(--primary);
+          flex-shrink: 0;
+        }
+        .closed-row span {
+          color: #e05555;
+        }
+        .closed-row svg {
+          color: #e05555;
+        }
+        .map-directions-btn {
+          margin-top: auto;
+          padding-top: 2rem;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          background: var(--primary);
+          color: white;
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: 600;
+          padding: 0.75rem 1.5rem;
+          border-radius: 10px;
+          transition: all 0.3s ease;
+          margin-top: 2rem;
+          align-self: flex-start;
+          box-shadow: 0 4px 14px rgba(221, 149, 137, 0.35);
+        }
+        .map-directions-btn:hover {
+          background: var(--primary-dark, #c97460);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(221, 149, 137, 0.45);
+        }
+        .map-embed-wrapper {
+          position: relative;
+          min-height: 420px;
+        }
+        .map-embed-wrapper iframe {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+
+        @media (max-width: 1024px) {
+          .about-grid-layout {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+          }
+          .about-image-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+          }
+          .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+          }
+          .case-card {
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+          }
+          .clinic-info-divider {
+            display: none;
+          }
+          .map-section-inner {
+            grid-template-columns: 1fr;
+          }
+          .map-info-panel {
+            border-right: none;
+            border-bottom: 1px solid var(--border-color);
+          }
+          .map-embed-wrapper {
+            min-height: 320px;
+            position: relative;
+          }
+        }
+
+      `})]})}export{h as default};

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MR3BTSCLZD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MR3BTSCLZD');
+    </script>
+    
+    <link rel="icon" type="image/jpeg" href="/Aestheva/minilogo.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Dr. Ketaki's Aesthéva - Premium Skin, Hair, Laser & Aesthetic Clinic. Renew Skin. Reveal You. Dedicated to providing highly personalized and clinical aesthetic care." />
+    <meta name="keywords" content="dermatology, skin treatment, laser treatment, anti-aging, cosmetic procedures, skin rejuvenation, medical aesthetics, skin care, beauty treatments, dermal fillers, microneedling, laser hair removal" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic" />
+    <meta property="og:description" content="Renew Skin. Reveal You. Expert dermatologist-led aesthetic treatments in Mumbai." />
+    <meta property="og:image" content="/Aestheva/logo.png" />
+    <meta property="og:type" content="website" />
+
+    <title>Dr. Ketaki's Aestheva | Skin, Hair, Laser & Aesthetic Clinic</title>
+    <link rel="stylesheet" href="/Aestheva/aestheva-animations.css">
+    <link rel="preload" href="/Aestheva/hero-banner.png" as="image" />
+    <script type="module" crossorigin src="/Aestheva/assets/index-CTEp9Eif.js"></script>
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/rolldown-runtime-Cyuzqnbw.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-react-BbYjAYeo.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-gsap-BsKOQrwt.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-forms-DgEGNjNj.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-framer-CSHdN5MM.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-others-D2nt6MkD.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-utils-bg_2gNJs.js">
+    <link rel="modulepreload" crossorigin href="/Aestheva/assets/vendor-lucide-Cnss62YS.js">
+    <link rel="stylesheet" crossorigin href="/Aestheva/assets/index-CGjadxuh.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('revealed');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll(
+        '.section-title-wrapper, .hp-feature-card, .stat-item, ' +
+        '.testimonial-card, .walkthrough-box, .about-feature-item, ' +
+        '.contact-info-card, .faq-item, [data-reveal], [data-stagger]'
+      ).forEach(el => obs.observe(el));
+    </script>
+  </body>
+</html>
