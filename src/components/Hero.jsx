@@ -22,11 +22,13 @@ export default function Hero({ onBookClick }) {
 
   useEffect(() => {
     let index = 0;
-    setTypedText("");
+    let current = "";
     const interval = setInterval(() => {
-      setTypedText((prev) => prev + subtitleText.charAt(index));
-      index++;
-      if (index >= subtitleText.length) {
+      if (index < subtitleText.length) {
+        current += subtitleText.charAt(index);
+        setTypedText(current);
+        index++;
+      } else {
         clearInterval(interval);
       }
     }, 25);
@@ -123,7 +125,7 @@ export default function Hero({ onBookClick }) {
             
             <div className="col-md-6 align-self-end img-column">
               <div className="hero-thumbnail" style={{ overflow: 'hidden' }}>
-                <img ref={imgRef} className="thumbnail" src="/hero-banner.png" alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
+                 <img ref={imgRef} className="thumbnail" src={`${import.meta.env.BASE_URL}hero-banner.png`} alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
               </div>
             </div>
           </div>

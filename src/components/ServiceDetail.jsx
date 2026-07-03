@@ -213,7 +213,7 @@ export default function ServiceDetail({ onBookClick }) {
 
         {/* Mini Logo — bottom-right of banner */}
         <img
-          src="/minilogo.jpg"
+          src={`${import.meta.env.BASE_URL}minilogo.jpg`}
           alt="Aesthéva"
           className="banner-minilogo"
         />

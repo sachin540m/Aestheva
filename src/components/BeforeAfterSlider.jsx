@@ -21,13 +21,13 @@ export default function BeforeAfterSlider() {
               <ReactCompareSlider
                 itemOne={
                   <div className="slider-item-wrapper">
-                    <ReactCompareSliderImage src="/before_skin.png" alt="Skin before treatment" />
+                    <ReactCompareSliderImage src={`${import.meta.env.BASE_URL}before_skin.png`} alt="Skin before treatment" />
                     <span className="slider-badge before-badge">Before</span>
                   </div>
                 }
                 itemTwo={
                   <div className="slider-item-wrapper">
-                    <ReactCompareSliderImage src="/after_skin.png" alt="Skin after treatment" />
+                    <ReactCompareSliderImage src={`${import.meta.env.BASE_URL}after_skin.png`} alt="Skin after treatment" />
                     <span className="slider-badge after-badge">After</span>
                   </div>
                 }

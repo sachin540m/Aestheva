@@ -37,7 +37,7 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <div className="footer-logo">
-              <img src="/minilogo.jpg" alt="Dr. Ketaki's Aesthéva" style={{ height: '50px', width: 'auto' }} />
+              <img src={`${import.meta.env.BASE_URL}minilogo.jpg`} alt="Dr. Ketaki's Aesthéva" style={{ height: '50px', width: 'auto' }} />
             </div>
             <p className="footer-tagline">Renew Skin. Reveal You</p>
             <p className="footer-description">

@@ -11,20 +11,20 @@ export default function About({ isPage = false }) {
     {
       title: "Acne Scar Correction",
       description: "6 sessions of clinical microneedling + chemical peels",
-      beforeImg: "/before_acne.png",
-      afterImg: "/after_acne.png"
+      beforeImg: `${import.meta.env.BASE_URL}before_acne.png`,
+      afterImg: `${import.meta.env.BASE_URL}after_acne.png`
     },
     {
       title: "Skin Rejuvenation & Pigmentation",
       description: "4 sessions of GFC + advanced carbon laser toning",
-      beforeImg: "/before_pigmentation.png",
-      afterImg: "/after_pigmentation.png"
+      beforeImg: `${import.meta.env.BASE_URL}before_pigmentation.png`,
+      afterImg: `${import.meta.env.BASE_URL}after_pigmentation.png`
     },
     {
       title: "Open Pores Treatment",
       description: "3 sessions of MNRF (Microneedle RF)",
-      beforeImg: "/before_pores.png",
-      afterImg: "/after_pores.png"
+      beforeImg: `${import.meta.env.BASE_URL}before_pores.png`,
+      afterImg: `${import.meta.env.BASE_URL}after_pores.png`
     }
   ];
 
@@ -85,7 +85,7 @@ export default function About({ isPage = false }) {
             {/* Left Column: Image with Experience Badge */}
             <div className="about-image-wrapper">
               <div className="doctor-frame">
-                <img src="/dr-ketaki2.jpeg" alt="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" />
+                <img src={`${import.meta.env.BASE_URL}dr-ketaki2.jpeg`} alt="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" />
                 <div className="experience-badge">
                   <span className="exp-number">5+</span>
                   <span className="exp-text">Years<br/>experience</span>
@@ -246,7 +246,7 @@ export default function About({ isPage = false }) {
         /* 1. Hero Banner */
         .about-hero-banner {
           position: relative;
-          background-image: url('/about-banner.png');
+          background-image: url('${import.meta.env.BASE_URL}about-banner.png');
           background-size: cover;
           background-position: left 48%;
           padding: 12rem 0 10rem 0;

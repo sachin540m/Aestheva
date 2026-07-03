@@ -61,7 +61,7 @@ export default function Header({ onBookClick }) {
       <div className="header-container">
         {/* Brand Logo */}
         <a href="/" className="logo-area" onClick={(e) => handleNavClick(e, 'hero')}>
-          <img src="/logo.png" alt="Dr. Ketaki's Aesthéva" className="logo-img-tag" />
+          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Dr. Ketaki's Aesthéva" className="logo-img-tag" />
         </a>
 
         {/* Desktop Navigation */}
