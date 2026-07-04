@@ -207,7 +207,7 @@ export default function Hero({ onBookClick }) {
           font-size: 4.2rem;
           font-weight: 700;
           line-height: 1.15;
-          color: var(--text-dark);
+          color: #000000;
           margin-bottom: 2rem;
         }
         

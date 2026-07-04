@@ -187,12 +187,7 @@
 }
 
 .hero-banner .title {
-  color: var(--text-dark);
-  transition: color 0.4s ease;
-}
-
-.hero-banner .title:hover {
-  color: var(--primary);
+  color: #000000;
 }
 
 /* Hero CTA btn pulse */
