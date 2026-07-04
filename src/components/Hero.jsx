@@ -35,55 +35,67 @@ export default function Hero({ onBookClick }) {
 
   useGSAP(() => {
     // Character reveal animation
-    const chars = titleRef.current.querySelectorAll('.char');
-    gsap.fromTo(chars,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.02,
-        ease: "power4.out",
-        delay: 0.2
-      }
-    );
+    if (titleRef.current) {
+      const chars = titleRef.current.querySelectorAll('.char');
+      gsap.fromTo(chars,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.02,
+          ease: "power4.out",
+          delay: 0.2
+        }
+      );
+    }
 
     // Parallax on image scroll
-    gsap.to(imgRef.current, {
-      y: 100,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
+    if (imgRef.current && containerRef.current) {
+      gsap.to(imgRef.current, {
+        y: 100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        }
+      });
+    }
 
     // Background stars parallax
-    gsap.to(containerRef.current.querySelector('.star1'), {
-      y: -60,
-      rotate: 45,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
+    if (containerRef.current) {
+      const star1 = containerRef.current.querySelector('.star1');
+      if (star1) {
+        gsap.to(star1, {
+          y: -60,
+          rotate: 45,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          }
+        });
       }
-    });
 
-    gsap.to(containerRef.current.querySelector('.star2'), {
-      y: -120,
-      rotate: -45,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
+      const star2 = containerRef.current.querySelector('.star2');
+      if (star2) {
+        gsap.to(star2, {
+          y: -120,
+          rotate: -45,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          }
+        });
       }
-    });
+    }
   }, { scope: containerRef });
 
   return (
