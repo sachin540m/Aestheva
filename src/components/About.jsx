@@ -224,9 +224,9 @@ export default function About({ isPage = false }) {
                       <span className="slider-badge after-badge">After</span>
                     </div>
                   }
+                  className="lightbox-slider"
                   style={{
                     width: '100%',
-                    height: '450px',
                     borderRadius: '12px',
                     overflow: 'hidden',
                   }}
@@ -787,6 +787,9 @@ export default function About({ isPage = false }) {
           top: 0;
           left: 0;
         }
+        .lightbox-slider {
+          height: 450px;
+        }
 
         @media (max-width: 1024px) {
           .about-grid-layout {
@@ -820,6 +823,59 @@ export default function About({ isPage = false }) {
           .map-embed-wrapper {
             min-height: 320px;
             position: relative;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .about-hero-banner {
+            padding: 8rem 0 5rem 0;
+          }
+          .banner-title {
+            font-size: 2.2rem;
+          }
+          .about-main-title {
+            font-size: 2.2rem;
+          }
+          .experience-badge {
+            left: 10px;
+            top: 15px;
+            padding: 0.6rem 1.2rem;
+            box-shadow: var(--shadow-sm);
+          }
+          .experience-badge .exp-number {
+            font-size: 1.8rem;
+          }
+          .lightbox-backdrop {
+            padding: 0.8rem;
+          }
+          .lightbox-content {
+            padding: 1.8rem 1.2rem;
+            border-radius: 12px;
+          }
+          .lightbox-title {
+            font-size: 1.4rem;
+          }
+          .lightbox-desc {
+            font-size: 0.8rem;
+            margin-bottom: 1.2rem;
+          }
+          .lightbox-slider {
+            height: 300px;
+          }
+          .clinic-info-grid {
+            gap: 1.5rem;
+            justify-content: center;
+          }
+          .clinic-info-item {
+            min-width: 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .about-features-columns {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
           }
         }
 

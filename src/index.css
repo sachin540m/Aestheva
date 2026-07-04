@@ -85,6 +85,11 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+.app-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 /* Container */
 .container {
   max-width: 1280px;

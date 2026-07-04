@@ -568,6 +568,9 @@ export default function Header({ onBookClick }) {
           .logo-area {
             padding-left: 0;
           }
+          .logo-img-tag {
+            height: 60px;
+          }
           .desktop-nav, .phone-widget {
             display: none;
           }

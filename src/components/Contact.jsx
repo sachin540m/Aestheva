@@ -504,6 +504,26 @@ export default function Contact({ isPage = false }) {
             padding: 2.2rem;
           }
         }
+        @media (max-width: 991px) {
+          .contact-cards-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+        }
+        @media (max-width: 768px) {
+          .contact-hero-banner {
+            padding: 6rem 0 3.5rem 0;
+          }
+          .banner-title {
+            font-size: 2.2rem;
+          }
+          .contact-details-section {
+            padding: 3.5rem 0;
+          }
+          .contact-cards-section {
+            padding: 3.5rem 0;
+          }
+        }
         @media (max-width: 480px) {
           .row-fields {
             flex-direction: column;
