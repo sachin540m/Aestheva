@@ -82,7 +82,7 @@ export default function Contact({ isPage = false }) {
                 </div>
                 <h4>Send us a Mail</h4>
                 <p><a href="mailto:drketakisaestheva@gmail.com">drketakisaestheva@gmail.com</a></p>
-                <p>Support: <a href="mailto:drketakisaestheva@gmail.com">drketakisaestheva@gmail.com</a></p>
+            
               </div>
 
               {/* Card 3 */}
@@ -270,6 +270,12 @@ export default function Contact({ isPage = false }) {
         .banner-content {
           position: relative;
           z-index: 2;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
         .banner-title {
           font-family: var(--font-serif);
@@ -277,6 +283,7 @@ export default function Contact({ isPage = false }) {
           font-weight: 600;
           color: white;
           margin-bottom: 1rem;
+          text-align: center;
         }
         .breadcrumbs {
           display: inline-flex;

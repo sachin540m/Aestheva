@@ -248,9 +248,14 @@ export default function About({ isPage = false }) {
           position: relative;
           background-image: url('/about-banner.png');
           background-size: cover;
-          background-position: left 48%;
+          background-position: center;
           padding: 12rem 0 10rem 0;
           color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
         .banner-overlay {
           position: absolute;
@@ -264,6 +269,12 @@ export default function About({ isPage = false }) {
         .banner-content {
           position: relative;
           z-index: 2;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
         }
         .banner-title {
           font-family: var(--font-serif);
@@ -271,6 +282,7 @@ export default function About({ isPage = false }) {
           font-weight: 600;
           color: white;
           margin-bottom: 1rem;
+          text-align: center;
         }
         .breadcrumbs {
           display: inline-flex;
