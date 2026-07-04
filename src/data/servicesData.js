@@ -6,7 +6,7 @@ export const servicesData = [
     shortDesc: "Revitalize your skin with customized therapies for a youthful, radiant glow.",
     category: "skin",
     iconName: "Sparkles",
-    imageUrl: new URL('../assets/skinrejuvenation.webp', import.meta.url).href,
+    imageUrl: new URL('../assets/skinrejuvenation.png', import.meta.url).href,
     sessionInfo: {
       duration: "45 - 60 mins",
       downtime: "None to minimal redness",
