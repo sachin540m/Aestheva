@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Calendar, Sun, Moon, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, Calendar, ChevronDown } from 'lucide-react';
 
 export default function Header({ onBookClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'light';
-  });
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+    document.documentElement.setAttribute('data-theme', 'light');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,16 +125,8 @@ export default function Header({ onBookClick }) {
           <a href="/contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact Us</a>
         </nav>
 
-        {/* Desktop Theme Toggle positioned between Nav and Actions */}
-        <button className="theme-toggle-btn desktop-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
-          {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-        </button>
-
         {/* Action CTAs */}
         <div className="header-actions">
-          <button className="theme-toggle-btn mobile-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
 
           <a href="tel:+919136611998" className="phone-widget">
             <div className="phone-icon-circle">
