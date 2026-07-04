@@ -186,23 +186,13 @@
   filter: brightness(1.04);
 }
 
-/* Hero title shimmer on hover */
 .hero-banner .title {
-  background: linear-gradient(
-    90deg,
-    var(--text-dark) 0%,
-    var(--primary) 40%,
-    var(--text-dark) 80%
-  );
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-position 0.4s ease;
+  color: var(--text-dark);
+  transition: color 0.4s ease;
 }
 
 .hero-banner .title:hover {
-  animation: shimmer 2s linear infinite;
+  color: var(--primary);
 }
 
 /* Hero CTA btn pulse */

@@ -17,7 +17,7 @@ export default function Hero({ onBookClick }) {
   const words = titleText.split(" ");
 
   // Typewriter effect state
-  const subtitleText = "Exxpert-led skin, hair, and laser treatments tailored to your unique needs, helping you look refreshed, confident, and naturally beautiful.";
+  const subtitleText = "Expert-led skin, hair, and laser treatments tailored to your unique needs, helping you look refreshed, confident, and naturally beautiful.";
   const [typedText, setTypedText] = useState("");
 
   useEffect(() => {
@@ -153,8 +153,7 @@ export default function Hero({ onBookClick }) {
 
       <style>{`
         .hero-content .title .char {
-          color: var(--text-dark);
-          -webkit-text-fill-color: var(--text-dark) !important;
+          color: inherit;
         }
         .typewriter-cursor {
           display: inline-block;

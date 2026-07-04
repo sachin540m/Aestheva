@@ -41,7 +41,7 @@ export default function Footer() {
             </div>
             <p className="footer-tagline">Renew Skin. Reveal You</p>
             <p className="footer-description">
-              Dermatologist-led, client-focused clinic for advanced skin, hair, and laser aesthetic solutions.
+              Doctor-led, client-focused clinic for advanced skin, hair, and laser aesthetic solutions.
             </p>
             <div className="footer-socials">
               <a href="https://instagram.com/dr_ketakis_aestheva" target="_blank" rel="noreferrer" className="social-icon" aria-label="Instagram">
@@ -68,7 +68,7 @@ export default function Footer() {
               <li><a href="/services/skin-rejuvenation" onClick={(e) => handleTreatmentClick(e, '/services/skin-rejuvenation')}>Skin Care</a></li>
               <li><a href="/services/anti-aging-treatment" onClick={(e) => handleTreatmentClick(e, '/services/anti-aging-treatment')}>Aesthetic Care</a></li>
               <li><a href="/services/prp-gfc-therapy" onClick={(e) => handleTreatmentClick(e, '/services/prp-gfc-therapy')}>Hair Care</a></li>
-              <li><a href="/services/laser-hair-removal" onClick={(e) => handleTreatmentClick(e, '/services/laser-hair-removal')}>Laser Treatments</a></li>
+              <li><a href="/services/laser-hair-reduction" onClick={(e) => handleTreatmentClick(e, '/services/laser-hair-reduction')}>Laser Treatments</a></li>
             </ul>
           </div>
 

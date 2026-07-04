@@ -147,7 +147,7 @@ function App() {
                 "opens": "11:00",
                 "closes": "20:00"
               },
-              "medicalSpecialty": "Dermatology",
+              "medicalSpecialty": "SkinCare",
               "founder": {
                 "@type": "MedicalOrganization",
                 "name": "Dr. Ketaki Dongare - Bhoir"

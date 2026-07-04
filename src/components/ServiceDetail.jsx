@@ -52,7 +52,7 @@ export default function ServiceDetail({ onBookClick }) {
     service = {
       id: serviceId,
       title: formattedTitle,
-      shortDesc: `Dermatologist-led ${formattedTitle} program designed to restore vitality and achieve visible, long-lasting clinical results.`,
+      shortDesc: `Doctor-led ${formattedTitle} program designed to restore vitality and achieve visible, long-lasting clinical results.`,
       category: guessedCategory,
       imageUrl: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
       sessionInfo: {

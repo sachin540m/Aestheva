@@ -22,7 +22,7 @@ export default function Services({ onBookClick }) {
     {
       id: 'laser',
       title: 'Laser & Pigmentation',
-      desc: 'US-FDA approved laser hair removal, tattoo removal, carbon laser peel, and spot correction.',
+      desc: 'US-FDA approved laser hair reduction, tattoo removal, carbon laser peel, and spot correction.',
       imageUrl: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=800&q=80'
     },
     {

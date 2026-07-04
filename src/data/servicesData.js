@@ -39,7 +39,7 @@ export const servicesData = [
   {
     id: "acne-management",
     title: "Acne Management",
-    shortDesc: "Effective dermatologist-guided treatments to clear acne and prevent future breakouts.",
+    shortDesc: "Effective doctor-guided treatments to clear acne and prevent future breakouts.",
     category: "skin",
     iconName: "ShieldAlert",
     imageUrl: new URL('../assets/acne management.png', import.meta.url).href,
@@ -49,7 +49,7 @@ export const servicesData = [
       sessions: "4 - 6 sessions",
       interval: "2 weeks"
     },
-    fullDesc: "Acne is a medical condition that requires clinical intervention. Our Acne Management program combines dermatologist-guided topical regimens with targeted in-clinic treatments like comedone extraction, chemical peels, and light-based therapies. We don't just treat active acne; we focus on regulating sebum production, clearing blocked pores, reducing inflammation, and preventing post-acne scarring.",
+    fullDesc: "Acne is a medical condition that requires clinical intervention. Our Acne Management program combines doctor-guided topical regimens with targeted in-clinic treatments like comedone extraction, chemical peels, and light-based therapies. We don't just treat active acne; we focus on regulating sebum production, clearing blocked pores, reducing inflammation, and preventing post-acne scarring.",
     benefits: [
       "Reduces active inflammatory acne lesions quickly",
       "Controls excess oil production and refines pores",
@@ -89,7 +89,7 @@ export const servicesData = [
     benefits: [
       "Fades stubborn patches, sun spots, and melasma plaques",
       "Evens out skin tone for a brighter, more uniform complexion",
-      "Safe for dark skin types under experienced dermatological care",
+      "Safe for dark skin types under experienced clinical care",
       "Strengthens skin tolerance against future sun damage"
     ],
     whatToExpect: {
@@ -583,9 +583,9 @@ export const servicesData = [
 
   // ==================== LASER TREATMENTS ====================
   {
-    id: "laser-hair-removal",
-    title: "Laser Hair Removal",
-    shortDesc: "Smooth, hair-free skin with long-lasting laser technology.",
+    id: "laser-hair-reduction",
+    title: "Laser Hair Reduction",
+    shortDesc: "Achieve long-lasting hair reduction using advanced Diode Laser Technology.",
     category: "laser",
     iconName: "Flame",
     imageUrl: new URL('../assets/laserhairremoval.png', import.meta.url).href,
@@ -595,7 +595,7 @@ export const servicesData = [
       sessions: "6 - 8 sessions",
       interval: "4 - 6 weeks"
     },
-    fullDesc: "Get rid of temporary hair removal methods like shaving, waxing, and epilating. Our clinic uses US-FDA approved Diode and Nd:YAG laser technologies, which are safe for Indian skin types. The laser emitting light energy targets the melanin in hair follicles, heating and destroying the root without harming the surrounding skin. This prevents future hair growth, giving you smooth, stubble-free, and ingrown-free skin.",
+    fullDesc: "Achieve long-lasting hair reduction using advanced Diode Laser Technology. Our treatment is safe, comfortable, effective, and suitable for most skin types while helping reduce unwanted hair growth over multiple sessions. By targeting the melanin in hair follicles, the laser energy gently heats the root to inhibit future growth without affecting the surrounding skin, offering a premium and reliable solution.",
     benefits: [
       "Permanently reduces hair growth by up to 90%",
       "Prevents painful ingrown hairs, razor bumps, and skin irritation",
@@ -609,8 +609,8 @@ export const servicesData = [
     },
     faqs: [
       {
-        q: "Is Laser Hair Removal permanent?",
-        a: "It results in permanent hair reduction. Over time, hormonal changes might trigger fine, light hair regrowth, which can be easily managed with annual touch-up sessions."
+        q: "Is Laser Hair Reduction permanent?",
+        a: "It results in long-lasting hair reduction. Over time, hormonal changes might trigger fine, light hair regrowth, which can be easily managed with annual touch-up sessions."
       },
       {
         q: "Does it work on grey or light hair?",
@@ -708,7 +708,7 @@ export const servicesData = [
       "Instantly removes benign skin growths in a single session",
       "Painless procedure under local anesthesia",
       "Co2 laser cauterizes blood vessels immediately, preventing bleeding",
-      "Dermatologist-guided to ensure mole safety and proper tissue assessment"
+      "Doctor-guided to ensure mole safety and proper tissue assessment"
     ],
     whatToExpect: {
       before: "Dr. Ketaki will inspect the mole/tag to confirm it is benign and safe for cosmetic removal.",
@@ -744,7 +744,7 @@ export const servicesData = [
       "Precision targeting of specific skin depths and targets (pigment, water, hemoglobin)",
       "High safety profile with advanced contact-cooling systems",
       "Treats complex concerns like vascular lesions, birthmarks, and deep pores",
-      "Clinically proven results backed by dermatology research"
+      "Clinically proven results backed by clinical research"
     ],
     whatToExpect: {
       before: "Avoid active retinoids and sunbeds for 5 days. Ensure skin is not tanned.",

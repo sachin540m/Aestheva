@@ -118,7 +118,7 @@ export default function Header({ onBookClick }) {
               <div className="mega-menu-column">
                 <h5>Laser Treatments</h5>
                 <ul>
-                  <li><a href="/services/laser-hair-removal" onClick={(e) => handleServiceLinkClick(e, 'laser-hair-removal')}>Laser Hair Removal</a></li>
+                  <li><a href="/services/laser-hair-reduction" onClick={(e) => handleServiceLinkClick(e, 'laser-hair-reduction')}>Laser Hair Reduction</a></li>
                   <li><a href="/services/photo-rejuvenation-carbon" onClick={(e) => handleServiceLinkClick(e, 'photo-rejuvenation-carbon')}>Photo Rejuvenation</a></li>
                   <li><a href="/services/tattoo-removal" onClick={(e) => handleServiceLinkClick(e, 'tattoo-removal')}>Tattoo Removal</a></li>
                   <li><a href="/services/skin-tags-mole-removal" onClick={(e) => handleServiceLinkClick(e, 'skin-tags-mole-removal')}>Skin Tags / Mole Removal</a></li>
@@ -199,7 +199,7 @@ export default function Header({ onBookClick }) {
               <a href="/services/hair-growth-treatment" onClick={(e) => handleServiceLinkClick(e, 'hair-growth-treatment')}>Hair Growth / Alopecia</a>
               <a href="/services/dandruff-treatment" onClick={(e) => handleServiceLinkClick(e, 'dandruff-treatment')}>Dandruff Treatment</a>
               <a href="/services/exsosomes-hair" onClick={(e) => handleServiceLinkClick(e, 'exsosomes-hair')}>Exsosomes for hair</a>
-              <a href="/services/laser-hair-removal" onClick={(e) => handleServiceLinkClick(e, 'laser-hair-removal')}>Laser Hair Removal</a>
+              <a href="/services/laser-hair-reduction" onClick={(e) => handleServiceLinkClick(e, 'laser-hair-reduction')}>Laser Hair Reduction</a>
               <a href="/services/photo-rejuvenation-carbon" onClick={(e) => handleServiceLinkClick(e, 'photo-rejuvenation-carbon')}>Photo Rejuvenation</a>
               <a href="/services/tattoo-removal" onClick={(e) => handleServiceLinkClick(e, 'tattoo-removal')}>Tattoo Removal</a>
               <a href="/services/skin-tags-mole-removal" onClick={(e) => handleServiceLinkClick(e, 'skin-tags-mole-removal')}>Skin Tags / Mole Removal</a>

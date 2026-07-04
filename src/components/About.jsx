@@ -58,7 +58,7 @@ export default function About({ isPage = false }) {
           <title>About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai</title>
           <meta name="description" content="Discover Dr. Ketaki Dongare - Bhoir, lead cosmetologist & aesthetic consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada." />
           <meta property="og:title" content="About Dr. Ketaki & Aesthéva Clinic" />
-          <meta property="og:description" content="Advanced dermatologist-led skin and hair treatments in Navi Mumbai." />
+          <meta property="og:description" content="Advanced doctor-led skin and hair treatments in Navi Mumbai." />
         </Helmet>
       )}
 
@@ -104,7 +104,7 @@ export default function About({ isPage = false }) {
                     <span className="cred-badge">Cosmetologist</span>
                     <span className="cred-badge">Trichologist</span>
                     <span className="cred-badge">Clinical Aesthetician</span>
-                    <span className="cred-badge">Ayurvedic Dermatology</span>
+                    <span className="cred-badge">Ayurvedic Cosmetology</span>
                   </div>
                   <p className="cred-fullname">Bachelor of Ayurvedic Medicine &amp; Surgery</p>
 
@@ -127,7 +127,7 @@ export default function About({ isPage = false }) {
                   </p>
 
                   <p className="about-paragraph secondary">
-                    From precision laser hair removal to targeted acne and anti-aging management, we combine gold-standard medical technology with a patient-centric philosophy. We believe that true rejuvenation is achieved through personalized, long-term health plans rather than quick cosmetic fixes.
+                    From precision laser hair reduction to targeted acne and anti-aging management, we combine gold-standard medical technology with a patient-centric philosophy. We believe that true rejuvenation is achieved through personalized, long-term health plans rather than quick cosmetic fixes.
                   </p>
                 </>
               )}

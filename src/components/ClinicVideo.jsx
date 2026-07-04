@@ -58,7 +58,7 @@ export default function ClinicVideo({ onBookClick }) {
           <span className="video-subtitle">THE AESTHÉVA EXPERIENCE</span>
           <h2 className="video-title">Premium Aesthetic Standards</h2>
           <p className="video-description">
-            Step into a clinical environment where advanced dermatology meets personalized aesthetic artistry. Our Sanpada clinic is equipped with US-FDA approved laser technologies and follows rigorous international hygiene standards to deliver safe, effective, and transformative care.
+            Step into a clinical environment where advanced skin care meets personalized aesthetic artistry. Our Sanpada clinic is equipped with US-FDA approved laser technologies and follows rigorous international hygiene standards to deliver safe, effective, and transformative care.
           </p>
           <button className="btn btn-primary btn-lg" onClick={onBookClick}>
             <Calendar size={18} style={{ marginRight: '8px' }} />

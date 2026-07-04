@@ -10,7 +10,7 @@ export default function BeforeAfterSlider() {
           <span className="section-subtitle">REAL PATIENT RESULTS</span>
           <h2 className="section-title">Transformative Skincare Journeys</h2>
           <div className="section-desc">
-            Witness the visible improvements achieved through our personalized, doctor-led dermatological treatments.
+            Witness the visible improvements achieved through our personalized, doctor-led skin and aesthetic treatments.
           </div>
         </div>
 
