@@ -207,16 +207,16 @@ export default function ServiceDetail({ onBookClick }) {
             <div
               className="banner-bg-right"
               style={{ backgroundImage: `url(${service.imageUrl})` }}
-            ></div>
+            >
+              {/* Mini Logo — bottom-right of banner */}
+              <img
+                src="/minilogo.jpg"
+                alt="Aesthéva"
+                className="banner-minilogo"
+              />
+            </div>
           )}
         </div>
-
-        {/* Mini Logo — bottom-right of banner */}
-        <img
-          src="/minilogo.jpg"
-          alt="Aesthéva"
-          className="banner-minilogo"
-        />
 
         <div className="container banner-container">
           <Link to="/" className="back-link-dark">
