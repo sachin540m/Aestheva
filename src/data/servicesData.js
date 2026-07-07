@@ -797,5 +797,86 @@ export const servicesData = [
         a: "Yes, older scars can still be treated, though younger scars that are still remodeling may respond slightly faster."
       }
     ]
+  },
+  {
+    id: "mnrf-treatment",
+    title: "MNRF Treatment",
+    shortDesc: "Advanced Microneedling Radiofrequency to target acne scars, pores, and firm skin texture.",
+    category: "skin",
+    iconName: "Layers",
+    imageUrl: new URL('../assets/mnrf-treatment.png', import.meta.url).href,
+    sessionInfo: {
+      duration: "45 - 60 mins",
+      downtime: "1 - 2 days of mild redness and swelling",
+      sessions: "3 - 5 sessions",
+      interval: "4 weeks"
+    },
+    fullDesc: "Microneedling Radiofrequency (MNRF) is a state-of-the-art treatment designed to target deeper layers of the skin. By combining the physical collagen-induction of sterile microneedling with targeted radiofrequency thermal energy, we trigger a powerful healing response. The radiofrequency energy heats the dermis at precise depths, causing structural contraction and stimulating massive new collagen and elastin production. This is highly effective for reducing acne scars, refining open pores, and tightening loose skin under the expert care of Dr. Ketaki.",
+    benefits: [
+      "Visibly reduces deep pitted acne scars and surgical scars",
+      "Refines enlarged open pores and smooths rough skin texture",
+      "Tightens sagging skin and improves overall skin elasticity",
+      "Reduces the appearance of fine lines, wrinkles, and stretch marks"
+    ],
+    whatToExpect: {
+      before: "Avoid active skincare ingredients (Retinols, AHAs, BHAs) or exfoliating scrubs for 5 days prior to treatment. Inform us if you have any active breakouts or cold sores.",
+      during: "A strong topical numbing cream is applied for 40-45 minutes to ensure comfort. The MNRF handpiece is then systematically pressed against the skin, delivering targeted energy pulses. You will feel a warm, vibrating, or mild prickly sensation.",
+      after: "Expect mild redness, warmth, and minor swelling, similar to a sunburn, for 24-48 hours. Apply only prescribed barrier-repair creams and a broad-spectrum physical sunscreen. Do not apply makeup or perform heavy exercise for 24 hours."
+    },
+    faqs: [
+      {
+        q: "How does MNRF compare to standard microneedling?",
+        a: "Standard microneedling works strictly on the epidermal surface. MNRF adds radiofrequency heat, which travels deep into the dermis. This double action triggers significantly stronger collagen remodeling, yielding vastly superior results for deep scars and skin tightening."
+      },
+      {
+        q: "Is MNRF treatment painful?",
+        a: "Because we apply a medical-grade numbing cream to the treatment area before starting, the procedure is very tolerable. Most patients feel only a warm, mild prickly sensation during the session."
+      },
+      {
+        q: "How many sessions are recommended for scars?",
+        a: "While improvements can be seen after one session, a clinical series of 3 to 5 sessions spaced 4 weeks apart is recommended for optimal, compounding results."
+      }
+    ]
+  },
+  {
+    id: "hifu-treatment",
+    title: "HIFU Treatment",
+    shortDesc: "Non-invasive skin lifting and jawline contouring using High-Intensity Focused Ultrasound.",
+    category: "skin",
+    iconName: "TrendingDown",
+    imageUrl: new URL('../assets/hifu-treatment.png', import.meta.url).href,
+    sessionInfo: {
+      duration: "60 - 90 mins",
+      downtime: "None (Immediate return to normal activities)",
+      sessions: "1 - 2 sessions",
+      interval: "6 - 12 months"
+    },
+    fullDesc: "High-Intensity Focused Ultrasound (HIFU) is a revolutionary, non-surgical treatment that lifts and tightens sagging skin. HIFU delivers precise, focused ultrasound waves deep into the skin's SMAS (Superficial Muscular Aponeurotic System) layer—the exact tissue layer targeted in surgical facelifts. The ultrasound energy generates local thermal heating, causing immediate contraction of collagen fibers and initiating a long-term production of new collagen. This results in a naturally lifted jawline, defined cheeks, and a reduced double chin without any needles or downtime.",
+    benefits: [
+      "Lifts and defines the jawline, cheeks, and brow non-surgically",
+      "Reduces sagging skin on the neck and tightens a double chin",
+      "Completely non-invasive with zero incisions, needles, or downtime",
+      "Triggers long-term natural collagen remodeling with progressive results"
+    ],
+    whatToExpect: {
+      before: "No special preparation is needed. Please arrive with clean skin, free of makeup or heavy moisturizers.",
+      during: "A cool ultrasound gel is applied to the target area. The HIFU transducer is guided across the skin, delivering focused pulses. You will feel a deep warming sensation and slight tingling, especially over bony areas like the jawline.",
+      after: "You may experience mild, temporary redness or slight tenderness in the treated area, which resolves within a few hours. There is zero downtime, and you can return to work and apply makeup immediately."
+    },
+    faqs: [
+      {
+        q: "When will I see results from HIFU?",
+        a: "Some initial lifting and tightening may be visible immediately after the treatment. However, the most significant results appear gradually over 2 to 3 months, peaking at 6 months as the newly generated collagen matures."
+      },
+      {
+        q: "How many sessions of HIFU are needed?",
+        a: "For most patients, a single session delivers significant lifting that lasts 12 to 18 months. Depending on skin laxity and individual aging processes, an annual maintenance session is recommended."
+      },
+      {
+        q: "Is HIFU safe?",
+        a: "Yes, HIFU is a clinically proven, safe, and US-FDA cleared technology for non-invasive lifting. Because the energy targets deep layers, the surface of the skin remains completely unaffected."
+      }
+    ]
   }
 ];
+

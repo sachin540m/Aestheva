@@ -52,16 +52,20 @@ export default function Hero({ onBookClick }) {
 
     // Parallax on image scroll
     if (imgRef.current && containerRef.current) {
-      gsap.to(imgRef.current, {
-        y: 100,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
+      gsap.fromTo(imgRef.current,
+        { y: 0, scale: 1.18 },
+        {
+          y: 80,
+          scale: 1.18,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          }
         }
-      });
+      );
     }
 
     // Background stars parallax
@@ -134,7 +138,7 @@ export default function Hero({ onBookClick }) {
             </div>
 
             <div className="col-md-6 align-self-end img-column">
-              <div className="hero-thumbnail" style={{ overflow: 'hidden' }}>
+              <div className="hero-thumbnail">
                 <img ref={imgRef} className="thumbnail" src="/hero-banner.png" alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
               </div>
             </div>
@@ -194,9 +198,13 @@ export default function Hero({ onBookClick }) {
           margin: 0 -15px;
         }
         .col-md-6 {
-          flex: 0 0 50%;
-          max-width: 50%;
+          flex: 0 0 45%;
+          max-width: 45%;
           padding: 0 15px;
+        }
+        .col-md-6.img-column {
+          flex: 0 0 55%;
+          max-width: 55%;
         }
         .hero-content {
           padding-right: 2rem;
@@ -254,12 +262,13 @@ export default function Hero({ onBookClick }) {
           height: 100%;
         }
         .thumbnail {
-          width: 100%;
-          max-width: 550px;
-          height: auto;
+          height: 620px;
+          width: auto;
+          max-width: 100%;
           /* Removed border and border-radius completely to match frameless look */
-          object-fit: cover;
+          object-fit: contain;
           display: block;
+          transform-origin: bottom center;
         }
         
         /* Floating right rating */
@@ -331,7 +340,7 @@ export default function Hero({ onBookClick }) {
           }
         }
         @media (max-width: 768px) {
-          .col-md-6 {
+          .col-md-6, .col-md-6.img-column {
             flex: 0 0 100%;
             max-width: 100%;
           }
@@ -347,6 +356,8 @@ export default function Hero({ onBookClick }) {
           }
           .thumbnail {
             max-width: 90%;
+            height: auto;
+            width: 100%;
           }
           .star1 { left: 80%; }
           .star2 { display: none; }

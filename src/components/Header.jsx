@@ -79,6 +79,8 @@ export default function Header({ onBookClick }) {
                   <li><a href="/services/pigmentation-melasma" onClick={(e) => handleServiceLinkClick(e, 'pigmentation-melasma')}>Pigmentation & Melasma</a></li>
                   <li><a href="/services/chemical-peel" onClick={(e) => handleServiceLinkClick(e, 'chemical-peel')}>Chemical Peel</a></li>
                   <li><a href="/services/open-pores-microneedling" onClick={(e) => handleServiceLinkClick(e, 'open-pores-microneedling')}>Open Pores / Micro-Needling</a></li>
+                  <li><a href="/services/mnrf-treatment" onClick={(e) => handleServiceLinkClick(e, 'mnrf-treatment')}>MNRF Treatment</a></li>
+                  <li><a href="/services/hifu-treatment" onClick={(e) => handleServiceLinkClick(e, 'hifu-treatment')}>HIFU Treatment</a></li>
                   <li><a href="/services/mesotherapy" onClick={(e) => handleServiceLinkClick(e, 'mesotherapy')}>Mesotherapy</a></li>
                   <li><a href="/services/dark-spots-freckles" onClick={(e) => handleServiceLinkClick(e, 'dark-spots-freckles')}>Dark Spots / Freckles</a></li>
                   <li><a href="/services/skin-brightening" onClick={(e) => handleServiceLinkClick(e, 'skin-brightening')}>Skin Brightening</a></li>
@@ -173,6 +175,8 @@ export default function Header({ onBookClick }) {
               <a href="/services/pigmentation-melasma" onClick={(e) => handleServiceLinkClick(e, 'pigmentation-melasma')}>Pigmentation & Melasma</a>
               <a href="/services/chemical-peel" onClick={(e) => handleServiceLinkClick(e, 'chemical-peel')}>Chemical Peel</a>
               <a href="/services/open-pores-microneedling" onClick={(e) => handleServiceLinkClick(e, 'open-pores-microneedling')}>Open Pores / Micro-Needling</a>
+              <a href="/services/mnrf-treatment" onClick={(e) => handleServiceLinkClick(e, 'mnrf-treatment')}>MNRF Treatment</a>
+              <a href="/services/hifu-treatment" onClick={(e) => handleServiceLinkClick(e, 'hifu-treatment')}>HIFU Treatment</a>
               <a href="/services/mesotherapy" onClick={(e) => handleServiceLinkClick(e, 'mesotherapy')}>Mesotherapy</a>
               <a href="/services/dark-spots-freckles" onClick={(e) => handleServiceLinkClick(e, 'dark-spots-freckles')}>Dark Spots / Freckles</a>
               <a href="/services/skin-brightening" onClick={(e) => handleServiceLinkClick(e, 'skin-brightening')}>Skin Brightening</a>

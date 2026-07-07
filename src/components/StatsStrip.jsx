@@ -9,7 +9,7 @@ export default function StatsStrip() {
   const containerRef = useRef(null);
 
   const stats = [
-    { value: 10, suffix: '+', label: 'Years of Clinical Experience' },
+    { value: 5, suffix: '+', label: 'Years of Clinical Experience' },
     { value: 22, suffix: '+', label: 'Specialist Treatments' },
     { value: 5000, suffix: '+', label: 'Happy Patients' },
     { value: 4.9, suffix: '★', decimals: 1, label: 'Google Rating' },
