@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,11 +12,7 @@ export default function Hero({ onBookClick }) {
   const titleRef = useRef(null);
   const imgRef = useRef(null);
 
-  // Character split for staggering title
-  const titleText = "Aesthéva Is Professional Care for Healthy, Radiant Skin";
-  const words = titleText.split(" ");
-
-  // Typewriter effect state
+  // Subtitle/typewriter description
   const subtitleText = "  Expert-led skin, hair, and laser treatments tailored to your unique needs, helping you look refreshed, confident, and naturally beautiful.";
   const [typedText, setTypedText] = useState("");
 
@@ -29,34 +25,29 @@ export default function Hero({ onBookClick }) {
       if (index >= subtitleText.length) {
         clearInterval(interval);
       }
-    }, 25);
+    }, 20);
     return () => clearInterval(interval);
   }, []);
 
   useGSAP(() => {
-    // Character reveal animation
-    if (titleRef.current) {
-      const chars = titleRef.current.querySelectorAll('.char');
-      gsap.fromTo(chars,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.02,
-          ease: "power4.out",
-          delay: 0.2
-        }
-      );
-    }
+    // Reveal text elements smoothly
+    gsap.fromTo(".reveal-item", 
+      { opacity: 0, y: 20 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: "power3.out", delay: 0.1 }
+    );
 
-    // Parallax on image scroll
+    // Staggered line reveal for editorial title
+    gsap.fromTo(".editorial-line",
+      { y: "100%", opacity: 0 },
+      { y: "0%", opacity: 1, duration: 1.0, ease: "power4.out", stagger: 0.15, delay: 0.2 }
+    );
+
+    // Parallax scroll on main portrait image
     if (imgRef.current && containerRef.current) {
       gsap.fromTo(imgRef.current,
-        { y: 0, scale: 1.18 },
+        { y: -15 },
         {
-          y: 80,
-          scale: 1.18,
+          y: 15,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
@@ -66,305 +57,490 @@ export default function Hero({ onBookClick }) {
           }
         }
       );
-    }
-
-    // Background stars parallax
-    if (containerRef.current) {
-      const star1 = containerRef.current.querySelector('.star1');
-      if (star1) {
-        gsap.to(star1, {
-          y: -60,
-          rotate: 45,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          }
-        });
-      }
-
-      const star2 = containerRef.current.querySelector('.star2');
-      if (star2) {
-        gsap.to(star2, {
-          y: -120,
-          rotate: -45,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true,
-          }
-        });
-      }
     }
   }, { scope: containerRef });
 
   return (
-    <section id="hero" className="hero-banner style-1" ref={containerRef}>
-      <div className="container">
-        <div className="inner-wrapper">
-          <div className="row align-items-center h-100">
-            <div className="col-md-6">
-              <div className="hero-content">
-                <h1 className="title" ref={titleRef}>
-                  {words.map((word, wIdx) => (
-                    <span key={wIdx} style={{ display: 'inline-block', whiteSpace: 'nowrap', marginRight: '0.3em' }} className="word">
-                      {word.split("").map((char, cIdx) => (
-                        <span key={cIdx} style={{ display: 'inline-block' }} className="char">
-                          {char}
-                        </span>
-                      ))}
-                    </span>
-                  ))}
-                </h1>
+    <section id="hero" className="hero-section-editorial" ref={containerRef}>
+      {/* Texture noise overlay */}
+      <div className="editorial-noise-overlay" />
 
-                <div className="content-bx style-2 secondary m-b40">
-                  {typedText}
-                  <span className="typewriter-cursor">|</span>
+      <div className="container hero-container">
+        <div className="row align-items-center position-relative z-index-5">
+          
+          {/* Left Column: Spacious Editorial Content */}
+          <div className="col-md-6 content-column">
+            <div className="hero-editorial-content">
+              
+              {/* Spaced Professional Clinic Badge */}
+              <div className="editorial-brand-badge reveal-item">
+                <span className="badge-line" />
+                <span className="badge-text">Aesthéva Aesthetic & Laser Clinic</span>
+              </div>
+
+              {/* Title with Cormorant Garamond - standard casing and high contrast */}
+              <h1 className="editorial-title" ref={titleRef}>
+                <span className="editorial-line-container">
+                  <span className="editorial-line">Aesthéva Is</span>
+                </span>
+                <span className="editorial-line-container">
+                  <span className="editorial-line editorial-accent">Professional Care</span>
+                </span>
+                <span className="editorial-line-container">
+                  <span className="editorial-line">for <span className="editorial-serif-italic">Healthy, Radiant Skin</span></span>
+                </span>
+              </h1>
+
+              {/* Typewriter description */}
+              <p className="editorial-description reveal-item">
+                {typedText}
+                <span className="typewriter-cursor">|</span>
+              </p>
+
+              {/* Spaced Dual CTAs */}
+              <div className="editorial-cta-wrapper reveal-item">
+                <MagneticButton>
+                  <button onClick={() => onBookClick('')} className="btn-editorial-primary">
+                    Book Appointment
+                    <span className="btn-arrow-circle"><ArrowRight size={16} /></span>
+                  </button>
+                </MagneticButton>
+
+                <a href="#approach" className="btn-editorial-secondary">
+                  Explore Our Approach
+                  <span className="btn-secondary-arrow"><ArrowRight size={16} /></span>
+                </a>
+              </div>
+
+              {/* Compact Scan-friendly Trust Blocks */}
+              <div className="trust-blocks-row reveal-item">
+                <div className="trust-block">
+                  <span className="trust-block-val">5+ Yrs Exp.</span>
+                  <span className="trust-block-lbl">Clinical care</span>
+                </div>
+                
+                <div className="trust-divider" />
+
+                <div className="trust-block">
+                  <span className="trust-block-val">5K+ Patients</span>
+                  <span className="trust-block-lbl">Verified trust</span>
                 </div>
 
-                <div className="d-flex btn-wrapper">
-                  <MagneticButton>
-                    <button onClick={onBookClick} className="btn btn-lg btn-icon btn-pill">
-                      Appointment
-                      <span className="right-icon"><ArrowRight size={18} style={{ marginLeft: '8px' }} /></span>
-                    </button>
-                  </MagneticButton>
+                <div className="trust-divider" />
+
+                <div className="trust-block">
+                  <span className="trust-block-val">4.9★ Rating</span>
+                  <span className="trust-block-lbl">Google reviews</span>
                 </div>
               </div>
-            </div>
 
-            <div className="col-md-6 align-self-end img-column">
-              <div className="hero-thumbnail">
-                <img ref={imgRef} className="thumbnail" src="/hero-banner.png" alt="Aesthéva Skin Clinic" style={{ willChange: 'transform' }} />
-              </div>
             </div>
           </div>
 
-          {/* SVG stars to match Emberglow */}
-          <svg className="shape-star star1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="var(--primary)" />
-          </svg>
-          <svg className="shape-star star2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 0L13.5 10.5L24 12L13.5 13.5L12 24L10.5 13.5L0 12L10.5 10.5L12 0Z" fill="var(--primary)" />
-          </svg>
+          {/* Right Column: Clean Naturally Floating Portrait */}
+          <div className="col-md-6 img-column">
+            <div className="hero-natural-composition">
+              
+              {/* Soft radial peach backdrop glow */}
+              <div className="composition-peach-glow" />
+
+              {/* Frameless Floating Portrait Image */}
+              <img 
+                ref={imgRef} 
+                className="natural-portrait" 
+                src="/hero-banner.png" 
+                alt="Aesthéva Clinic Elite Care" 
+              />
+
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Right floating rating widget */}
-      <div className="widget-rating-right">
-        <ul className="star-list">
-          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
-          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
-          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
-          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
-          <li><Star size={12} fill="var(--primary)" stroke="none" /></li>
-        </ul>
-        <span className="rating">(4.8)</span>
-        <span className="text">200+ ratings on google</span>
-      </div>
-
       <style>{`
-        .hero-content .title .char {
-          color: inherit;
+        /* Import Cormorant Garamond & Outfit fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+        :root {
+          --font-luxury-serif: 'Cormorant Garamond', serif;
+          --font-luxury-sans: 'Outfit', sans-serif;
+        }
+
+        .hero-section-editorial {
+          position: relative;
+          padding: 13.5rem 0 9rem 0;
+          background-color: var(--bg-primary);
+          overflow: hidden;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+        }
+
+        /* Subtle fine noise overlay */
+        .editorial-noise-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.015'/%3E%3C/svg%3E");
+          pointer-events: none;
+          z-index: 2;
+        }
+
+        .z-index-5 {
+          position: relative;
+          z-index: 5;
+        }
+
+        /* Left Side Content Styles */
+        .hero-editorial-content {
+          padding-right: 2.5rem;
+        }
+
+        /* Spaced Clinical Badge */
+        .editorial-brand-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          margin-bottom: 2.2rem;
+        }
+        .editorial-brand-badge .badge-line {
+          width: 20px;
+          height: 1px;
+          background: var(--primary);
+        }
+        .editorial-brand-badge .badge-text {
+          font-family: var(--font-luxury-sans);
+          font-size: 0.78rem;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          font-weight: 500;
+          color: var(--text-dark);
+        }
+
+        /* Title Typography */
+        .editorial-title {
+          font-family: var(--font-luxury-serif);
+          font-size: 4.4rem;
+          font-weight: 300;
+          line-height: 1.12;
+          color: var(--text-dark);
+          margin-bottom: 2.5rem;
+          letter-spacing: -0.5px;
+        }
+        .editorial-line-container {
+          display: block;
+          overflow: hidden;
+        }
+        .editorial-line {
+          display: inline-block;
+          will-change: transform;
+        }
+        .editorial-accent {
+          font-weight: 500;
+        }
+        .editorial-serif-italic {
+          font-family: var(--font-luxury-serif);
+          font-style: italic;
+          font-weight: 300;
+          color: var(--primary);
+        }
+
+        /* Description with typewriter animation */
+        .editorial-description {
+          font-family: var(--font-luxury-sans);
+          font-size: 1.05rem;
+          color: var(--text-muted);
+          line-height: 1.8;
+          margin-bottom: 3.8rem;
+          max-width: 90%;
+          font-weight: 300;
         }
         .typewriter-cursor {
           display: inline-block;
-          font-weight: 200;
+          font-weight: 100;
           color: var(--primary);
-          animation: blink 0.75s step-end infinite;
-          margin-left: 2px;
+          animation: blinkCursor 0.8s step-end infinite;
+          margin-left: 3px;
         }
-        @keyframes blink {
+        @keyframes blinkCursor {
           from, to { color: transparent }
           50% { color: var(--primary); }
         }
-        .hero-banner {
-          position: relative;
-          padding: 9.5rem 0 0 0;
-          background: var(--bg-primary);
-          overflow: hidden;
+
+        /* Prominent Spaced Dual CTAs */
+        .editorial-cta-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 2.2rem;
+          margin-bottom: 4rem;
         }
-        .inner-wrapper {
-          position: relative;
-          z-index: 2;
+
+        /* Primary Button */
+        .btn-editorial-primary {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-luxury-sans);
+          font-size: 0.95rem;
+          font-weight: 500;
+          letter-spacing: 0.8px;
+          text-decoration: none;
+          cursor: pointer;
+          background: var(--primary-gradient);
+          color: white;
+          border: none;
+          padding: 1.05rem 2.8rem;
+          border-radius: 50px;
+          box-shadow: 0 10px 28px rgba(221, 150, 138, 0.2);
+          gap: 12px;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+        .btn-editorial-primary .btn-arrow-circle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.2);
+          transition: transform 0.4s ease;
+        }
+        .btn-editorial-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 14px 34px rgba(221, 150, 138, 0.3);
+        }
+        .btn-editorial-primary:hover .btn-arrow-circle {
+          transform: translateX(4px);
+        }
+
+        /* Secondary Link Button */
+        .btn-editorial-secondary {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-family: var(--font-luxury-sans);
+          font-size: 0.95rem;
+          font-weight: 500;
+          color: var(--text-dark);
+          text-decoration: none;
+          position: relative;
+          padding: 6px 0;
+          transition: color 0.3s ease;
+        }
+        .btn-editorial-secondary .btn-secondary-arrow {
+          display: flex;
+          align-items: center;
+          transition: transform 0.3s ease;
+        }
+        .btn-editorial-secondary::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 1px;
+          background: var(--primary);
+          transition: width 0.3s ease;
+        }
+        .btn-editorial-secondary:hover {
+          color: var(--primary);
+        }
+        .btn-editorial-secondary:hover .btn-secondary-arrow {
+          transform: translateX(4px);
+        }
+        .btn-editorial-secondary:hover::after {
+          width: 100%;
+        }
+
+        /* Compact Trust Blocks Row */
+        .trust-blocks-row {
+          display: flex;
+          align-items: center;
+          gap: 2.2rem;
+          margin-top: 3.5rem;
+          border-top: 1px solid rgba(234, 185, 120, 0.12);
+          padding-top: 2rem;
+          width: fit-content;
+        }
+        .trust-block {
+          display: flex;
+          flex-direction: column;
+        }
+        .trust-block-val {
+          font-family: var(--font-luxury-sans);
+          font-size: 1.3rem;
+          font-weight: 500;
+          color: var(--text-dark);
+          line-height: 1.2;
+          margin-bottom: 0.15rem;
+        }
+        .trust-block-lbl {
+          font-family: var(--font-luxury-sans);
+          font-size: 0.76rem;
+          color: var(--text-muted);
+          font-weight: 400;
+          letter-spacing: 0.5px;
+          white-space: nowrap;
+        }
+        .trust-divider {
+          width: 1px;
+          height: 24px;
+          background-color: rgba(234, 185, 120, 0.18);
+        }
+
+        /* Right Column Style: Natural Floating Image */
+        .hero-natural-composition {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          margin-left: -3rem; /* Overlap toward center slightly */
+          z-index: 5;
+        }
+
+        /* Soft radial peach backdrop glow */
+        .composition-peach-glow {
+          position: absolute;
+          width: 540px;
+          height: 540px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(234, 185, 120, 0.16) 0%, rgba(234, 185, 120, 0) 70%);
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        /* Natural Borderless Image */
+        .natural-portrait {
+          max-height: 580px;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
+          display: block;
+          z-index: 3;
+          transform-origin: bottom center;
+        }
+
+        /* Layout Grid Columns */
         .row {
           display: flex;
           flex-wrap: wrap;
-          margin: 0 -15px;
+          margin: 0 -1.5rem;
         }
         .col-md-6 {
-          flex: 0 0 45%;
-          max-width: 45%;
-          padding: 0 15px;
+          flex: 0 0 50%;
+          max-width: 50%;
+          padding: 0 1.5rem;
         }
-        .col-md-6.img-column {
-          flex: 0 0 55%;
-          max-width: 55%;
+        .content-column {
+          flex: 0 0 48%;
+          max-width: 48%;
         }
-        .hero-content {
-          padding-right: 2rem;
-          margin-bottom: 5.5rem;
-        }
-        
-        .hero-content .title {
-          font-size: 4.2rem;
-          font-weight: 700;
-          line-height: 1.15;
-          color: #000000;
-          margin-bottom: 2rem;
-        }
-        
-        .content-bx {
-          font-size: 1.05rem;
-          color: var(--text-muted);
-          line-height: 1.6;
-          margin-bottom: 2.5rem;
-          border-left: 4px solid var(--primary);
-          padding-left: 1.2rem;
-          max-width: 90%;
-        }
-        
-        .btn-wrapper {
-          display: flex;
-          gap: 1rem;
-        }
-        
-        .btn-pill {
-          background: var(--primary-gradient);
-          color: white;
-          border-radius: 50px;
-          padding: 0.9rem 2.2rem;
-          font-weight: 500;
-          font-size: 1.05rem;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          border: none;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          box-shadow: var(--shadow-sm);
-        }
-        .btn-pill:hover {
-          transform: translateY(-2px);
-          box-shadow: var(--shadow-md);
-        }
-        
-        .hero-thumbnail {
-          position: relative;
-          display: flex;
-          justify-content: flex-end;
-          align-items: flex-end;
-          height: 100%;
-        }
-        .thumbnail {
-          height: 620px;
-          width: auto;
-          max-width: 100%;
-          /* Removed border and border-radius completely to match frameless look */
-          object-fit: contain;
-          display: block;
-          transform-origin: bottom center;
-        }
-        
-        /* Floating right rating */
-        .widget-rating-right {
-          position: absolute;
-          right: 2rem;
-          top: 50%;
-          transform: translateY(-50%);
-          display: flex;
-          flex-direction: column-reverse; /* To read bottom-to-top when rotated */
-          align-items: center;
-          background: var(--bg-secondary);
-          padding: 1rem 0.6rem;
-          border-radius: 50px;
-          box-shadow: var(--shadow-md);
-          z-index: 10;
-        }
-        .widget-rating-right .star-list {
-          display: flex;
-          flex-direction: column;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          gap: 4px;
-        }
-        .widget-rating-right .rating {
-          font-weight: 700;
-          font-size: 0.85rem;
-          color: var(--primary);
-          writing-mode: vertical-rl;
-          transform: rotate(180deg);
-          margin-bottom: 0.5rem;
-        }
-        .widget-rating-right .text {
-          font-size: 0.8rem;
-          color: var(--text-muted);
-          writing-mode: vertical-rl;
-          transform: rotate(180deg);
-          margin-bottom: 0.8rem;
-          letter-spacing: 0.5px;
-          font-weight: 500;
+        .img-column {
+          flex: 0 0 52%;
+          max-width: 52%;
         }
 
-        /* Star shapes */
-        .shape-star {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          z-index: 1;
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+          .editorial-title {
+            font-size: 3.6rem;
+          }
+          .natural-portrait {
+            max-height: 500px;
+          }
+          .hero-natural-composition {
+            margin-left: -1rem;
+          }
         }
-        .star1 {
-          top: 10%;
-          left: 55%;
-        }
-        .star2 {
-          top: 45%;
-          right: 15%;
-        }
-
         @media (max-width: 1024px) {
-          .hero-banner {
-            padding: 8rem 0 0 0;
+          .hero-section-editorial {
+            padding: 11rem 0 6rem 0;
           }
-          .hero-content .title {
-            font-size: 3.2rem;
+          .editorial-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
           }
-          .widget-rating-right {
-            display: none; /* Hide on smaller screens to save space */
+          .natural-portrait {
+            max-height: 440px;
+          }
+          .composition-peach-glow {
+            width: 400px;
+            height: 400px;
+          }
+          .editorial-cta-wrapper {
+            gap: 1.8rem;
           }
         }
         @media (max-width: 768px) {
-          .col-md-6, .col-md-6.img-column {
+          .col-md-6, .col-md-6.img-column, .content-column, .img-column {
             flex: 0 0 100%;
             max-width: 100%;
           }
-          .hero-content {
+          .hero-editorial-content {
             padding-right: 0;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
           }
-          .hero-content .title {
-            font-size: 2.8rem;
-          }
-          .hero-thumbnail {
+          .editorial-brand-badge {
             justify-content: center;
           }
-          .thumbnail {
-            max-width: 90%;
-            height: auto;
-            width: 100%;
+          .editorial-title {
+            font-size: 2.8rem;
           }
-          .star1 { left: 80%; }
-          .star2 { display: none; }
+          .editorial-description {
+            max-width: 100%;
+            margin-bottom: 2.5rem;
+          }
+          .editorial-cta-wrapper {
+            justify-content: center;
+            margin-bottom: 3rem;
+          }
+          .trust-blocks-row {
+            justify-content: center;
+            margin: 3.5rem auto 0 auto;
+          }
+          .hero-natural-composition {
+            justify-content: center;
+            margin-left: 0;
+            padding-top: 1rem;
+          }
+          .natural-portrait {
+            max-height: 450px;
+          }
         }
         @media (max-width: 480px) {
-          .hero-content .title {
+          .editorial-title {
             font-size: 2.2rem;
+          }
+          .editorial-cta-wrapper {
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: stretch;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .btn-editorial-primary {
+            width: 100%;
+          }
+          .btn-editorial-secondary {
+            justify-content: center;
+          }
+          .trust-blocks-row {
+            gap: 1.2rem;
+          }
+          .trust-block-val {
+            font-size: 1.15rem;
+          }
+          .trust-block-lbl {
+            font-size: 0.72rem;
+          }
+          .natural-portrait {
+            max-height: 380px;
           }
         }
       `}</style>
