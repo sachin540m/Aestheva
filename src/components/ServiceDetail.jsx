@@ -193,10 +193,67 @@ export default function ServiceDetail({ onBookClick }) {
   return (
     <div className="service-detail-page">
       <Helmet>
-        <title>{`${service.title} Treatment in Sanpada, Navi Mumbai | Aesthéva`}</title>
-        <meta name="description" content={`Advanced ${service.title} procedure under the expert guidance of Dr. Ketaki. ${service.shortDesc}`} />
-        <meta property="og:title" content={`${service.title} Treatment | Aesthéva Clinic`} />
-        <meta property="og:description" content={service.shortDesc} />
+        <title>{`${service.title} Treatment in Sanpada, Navi Mumbai | Dr. Ketaki's Aesthéva`}</title>
+        <meta name="description" content={`Advanced ${service.title} procedure under the expert guidance of Dr. Ketaki. ${service.shortDesc} Book your clinical skin or hair session in Sanpada, Navi Mumbai.`} />
+        <link rel="canonical" href={`https://drketakisaestheva.in/services/${service.id}`} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content={`${service.title} Treatment in Sanpada, Navi Mumbai | Dr. Ketaki's Aesthéva`} />
+        <meta property="og:description" content={`Advanced ${service.title} procedure under the expert guidance of Dr. Ketaki. ${service.shortDesc}`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://drketakisaestheva.in/services/${service.id}`} />
+        <meta property="og:image" content={service.imageUrl || "https://drketakisaestheva.in/logo.png"} />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${service.title} Treatment in Sanpada, Navi Mumbai | Dr. Ketaki's Aesthéva`} />
+        <meta name="twitter:description" content={`Advanced ${service.title} procedure under the expert guidance of Dr. Ketaki. ${service.shortDesc}`} />
+        <meta name="twitter:image" content={service.imageUrl || "https://drketakisaestheva.in/logo.png"} />
+
+        {/* Dynamic Service Structured Data (JSON-LD) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": `${service.title} Treatment`,
+            "description": service.shortDesc || `Doctor-led ${service.title} procedure at Dr. Ketaki's Aesthéva Clinic.`,
+            "provider": {
+              "@type": "MedicalBusiness",
+              "name": "Dr. Ketaki's Aesthéva Clinic",
+              "alternateName": "Aesthéva Clinic Navi Mumbai",
+              "image": "https://drketakisaestheva.in/logo.png",
+              "telephone": "+919136611998",
+              "priceRange": "$$",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop No 4, Moraj Residency, Plot-01, Sector-16, Sanpada",
+                "addressLocality": "Navi Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400705",
+                "addressCountry": "IN"
+              }
+            },
+            "areaServed": [
+              {
+                "@type": "AdministrativeArea",
+                "name": "Sanpada"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Navi Mumbai"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "Mumbai"
+              }
+            ],
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "INR",
+              "price": "Price on Request"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* breadcrumbs + Header Hero */}

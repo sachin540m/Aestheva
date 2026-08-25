@@ -105,35 +105,54 @@ function App() {
         }}
       />
       <Helmet>
-        <title>Aesthéva | Premium Aesthetic & Laser Clinic</title>
-        <meta name="description" content="Aesthéva by Dr. Ketaki is a state-of-the-art clinic offering advanced skin, hair, and laser treatments in Sanpada, Navi Mumbai." />
-        <meta property="og:title" content="Aesthéva | Premium Aesthetic & Laser Clinic" />
-        <meta property="og:description" content="Advanced skin, hair, and laser treatments by Dr. Ketaki. Book your consultation today." />
+        <title>Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai</title>
+        <meta name="description" content="Dr. Ketaki's Aesthéva is Navi Mumbai's leading clinic offering premium skin rejuvenation, hair restoration (PRP/GFC), MNRF, HIFU, and medical-grade lasers in Sanpada." />
+        <link rel="canonical" href={"https://drketakisaestheva.in" + location.pathname} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:title" content="Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai" />
+        <meta property="og:description" content="Premium, clinical aesthetic treatments by Dr. Ketaki in Sanpada, Navi Mumbai. Book your clinical skin or hair consultation today." />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={"https://drketakisaestheva.in" + location.pathname} />
+        <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai" />
+        <meta name="twitter:description" content="Premium, clinical aesthetic treatments by Dr. Ketaki in Sanpada, Navi Mumbai. Book your clinical skin or hair consultation today." />
+        <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
+
+        {/* Structured Local SEO Data (JSON-LD) */}
         <script type="application/ld+json">
           {`
             {
               "@context": "https://schema.org",
               "@type": "MedicalBusiness",
-              "name": "Aesthéva Clinic",
-              "image": "https://astheva.com/logo.png",
-              "@id": "https://astheva.com/#clinic",
-              "url": "https://astheva.com",
+              "name": "Dr. Ketaki's Aesthéva Clinic",
+              "alternateName": "Aesthéva Clinic Navi Mumbai",
+              "image": "https://drketakisaestheva.in/logo.png",
+              "@id": "https://drketakisaestheva.in/#clinic",
+              "url": "https://drketakisaestheva.in",
               "telephone": "+919136611998",
               "priceRange": "$$",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Sanpada",
+                "streetAddress": "Shop No 4, Moraj Residency, Plot-01, Sector-16, Sanpada",
                 "addressLocality": "Navi Mumbai",
-                "addressRegion": "MH",
+                "addressRegion": "Maharashtra",
                 "postalCode": "400705",
                 "addressCountry": "IN"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 19.0634,
-                "longitude": 73.0182
+                "latitude": 19.0284428,
+                "longitude": 73.0116812
               },
+              "hasMap": "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8",
+              "sameAs": [
+                "https://instagram.com/dr_ketakis_aestheva",
+                "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8"
+              ],
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
                 "dayOfWeek": [
@@ -147,10 +166,15 @@ function App() {
                 "opens": "11:00",
                 "closes": "20:00"
               },
-              "medicalSpecialty": "SkinCare",
+              "medicalSpecialty": [
+                "SkinCare",
+                "CosmeticProcedure",
+                "Dermatology"
+              ],
               "founder": {
-                "@type": "MedicalOrganization",
-                "name": "Dr. Ketaki Dongare - Bhoir"
+                "@type": "Person",
+                "name": "Dr. Ketaki Dongare - Bhoir",
+                "jobTitle": "Cosmetologist & Aesthetic Consultant"
               }
             }
           `}

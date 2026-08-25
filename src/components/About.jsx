@@ -56,9 +56,18 @@ export default function About({ isPage = false }) {
       {isPage && (
         <Helmet>
           <title>About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai</title>
-          <meta name="description" content="Discover Dr. Ketaki Dongare - Bhoir, lead cosmetologist & aesthetic consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada." />
-          <meta property="og:title" content="About Dr. Ketaki & Aesthéva Clinic" />
-          <meta property="og:description" content="Advanced doctor-led skin and hair treatments in Navi Mumbai." />
+          <meta name="description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
+          <link rel="canonical" href="https://drketakisaestheva.in/about" />
+          
+          <meta property="og:title" content="About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai" />
+          <meta property="og:description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
+          <meta property="og:url" content="https://drketakisaestheva.in/about" />
+          <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
+          
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai" />
+          <meta name="twitter:description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
+          <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
         </Helmet>
       )}
 

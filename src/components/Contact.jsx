@@ -40,8 +40,17 @@ export default function Contact({ isPage = false }) {
         <Helmet>
           <title>Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai</title>
           <meta name="description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
-          <meta property="og:title" content="Contact Aesthéva Clinic | Sanpada" />
-          <meta property="og:description" content="Reach out to Dr. Ketaki's clinic for expert skin, hair, and laser care." />
+          <link rel="canonical" href="https://drketakisaestheva.in/contact" />
+          
+          <meta property="og:title" content="Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai" />
+          <meta property="og:description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
+          <meta property="og:url" content="https://drketakisaestheva.in/contact" />
+          <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
+          
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai" />
+          <meta name="twitter:description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
+          <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
         </Helmet>
       )}
 
