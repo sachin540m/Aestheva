@@ -7,7 +7,8 @@ export default function SEO({
   path = '',
   ogImage = 'https://drketakisaestheva.in/logo.png',
   ogType = 'website',
-  schema = null
+  schema = null,
+  robots = 'index, follow'
 }) {
   const defaultTitle = "Best Aesthetic Clinic in Sanpada, Navi Mumbai | Dr. Ketaki Aestheva";
   const defaultDesc = "Dr. Ketaki's Aesthéva is Navi Mumbai's leading clinic offering premium skin rejuvenation, hair restoration (PRP/GFC), MNRF, HIFU, and medical-grade lasers in Sanpada. Book your clinical skin or hair consultation today.";
@@ -50,7 +51,7 @@ export default function SEO({
 
       {/* Meta tags */}
       <meta name="description" content={seoDesc} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={robots} />
       <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph / Facebook */}

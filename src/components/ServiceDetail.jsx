@@ -158,6 +158,12 @@ export default function ServiceDetail({ onBookClick }) {
   if (!service) {
     return (
       <div className="not-found-container section-padding">
+        <SEO 
+          title="Treatment Not Found | Dr. Ketaki Aestheva Clinic"
+          description="The requested aesthetic treatment was not found. Please browse our index of skin, hair, and laser solutions in Sanpada, Navi Mumbai."
+          path={`/services/${serviceId}`}
+          robots="noindex, nofollow"
+        />
         <div className="container text-center">
           <h2 className="error-title">Treatment Not Found</h2>
           <p className="error-text">We couldn't find the clinical treatment you are looking for.</p>
