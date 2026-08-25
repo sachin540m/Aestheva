@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Shield, Award, Sparkles, Activity, X, ZoomIn } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
-import { Helmet } from 'react-helmet-async';
+import SEO from './SEO';
 
 export default function About({ isPage = false }) {
   const [activeCaseIdx, setActiveCaseIdx] = useState(null);
@@ -54,21 +54,29 @@ export default function About({ isPage = false }) {
   return (
     <div id="about" className="about-page-container">
       {isPage && (
-        <Helmet>
-          <title>About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai</title>
-          <meta name="description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
-          <link rel="canonical" href="https://drketakisaestheva.in/about" />
-          
-          <meta property="og:title" content="About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai" />
-          <meta property="og:description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
-          <meta property="og:url" content="https://drketakisaestheva.in/about" />
-          <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
-          
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="About Dr. Ketaki & Aesthéva Clinic | Sanpada, Navi Mumbai" />
-          <meta name="twitter:description" content="Discover Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva. Learn about our advanced skin and hair treatments in Sanpada, Navi Mumbai." />
-          <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
-        </Helmet>
+        <SEO 
+          title="About Dr. Ketaki Aestheva Clinic | Sanpada, Navi Mumbai"
+          description="Meet Dr Ketaki Aestheva in Sanpada, Navi Mumbai. Learn about our advanced clinic and customized skin & hair care treatments. Book your consultation today."
+          path="/about"
+          schema={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://drketakisaestheva.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://drketakisaestheva.in/about"
+              }
+            ]
+          }}
+        />
       )}
 
       {/* 1. Page Header Banner */}
@@ -94,7 +102,7 @@ export default function About({ isPage = false }) {
             {/* Left Column: Image with Experience Badge */}
             <div className="about-image-wrapper">
               <div className="doctor-frame">
-                <img src="/dr-ketaki2.jpeg" alt="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" />
+                <img src="/dr-ketaki2.jpeg" alt="Dr. Ketaki Dongare - Bhoir, Cosmetologist & Aesthetic Consultant at Aesthéva Clinic" title="Dr. Ketaki Dongare - Bhoir" className="doctor-main-photo" loading="lazy" decoding="async" width="400" height="500" />
                 <div className="experience-badge">
                   <span className="exp-number">5+</span>
                   <span className="exp-text">Years<br />experience</span>
@@ -191,7 +199,7 @@ export default function About({ isPage = false }) {
                   onClick={() => setActiveCaseIdx(idx)}
                 >
                   <div className="case-card-img-wrap">
-                    <img src={c.afterImg} alt={c.title} />
+                    <img src={c.afterImg} alt={`${c.title} - Treatment Before & After Results`} title={`${c.title} Results`} loading="lazy" decoding="async" width="300" height="300" />
                     <div className="case-card-hover-overlay">
                       <ZoomIn size={24} />
                       <span>Compare Results</span>

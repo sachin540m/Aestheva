@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
-import { Helmet } from 'react-helmet-async';
+import SEO from './SEO';
 
 export default function Contact({ isPage = false }) {
   const [form, setForm] = useState({
@@ -37,21 +37,29 @@ export default function Contact({ isPage = false }) {
   return (
     <div id="contact" className="contact-page-container">
       {isPage && (
-        <Helmet>
-          <title>Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai</title>
-          <meta name="description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
-          <link rel="canonical" href="https://drketakisaestheva.in/contact" />
-          
-          <meta property="og:title" content="Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai" />
-          <meta property="og:description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
-          <meta property="og:url" content="https://drketakisaestheva.in/contact" />
-          <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
-          
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Contact Aesthéva Clinic | Book Consultation in Sanpada, Navi Mumbai" />
-          <meta name="twitter:description" content="Get in touch with Aesthéva Clinic in Sanpada, Navi Mumbai. View our contact number +91 91366 11998, address, google map location, and request your consultation online." />
-          <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
-        </Helmet>
+        <SEO 
+          title="Contact Dr. Ketaki Aestheva Clinic | Sanpada, Navi Mumbai"
+          description="Get in touch with Dr Ketaki Aestheva in Sanpada, Navi Mumbai. Find address, maps, contact details for skin & hair treatments. Book an appointment now."
+          path="/contact"
+          schema={{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://drketakisaestheva.in/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact",
+                "item": "https://drketakisaestheva.in/contact"
+              }
+            ]
+          }}
+        />
       )}
 
       {/* 1. Page Header Banner */}

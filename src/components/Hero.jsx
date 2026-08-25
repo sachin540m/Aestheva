@@ -204,7 +204,7 @@ export default function Hero({ onBookClick }) {
 
                     <div className="col-md-6 align-self-end img-column">
                       <div className="hero-thumbnail">
-                        <img className="thumbnail" src={slide.image} alt={slide.title} style={{ willChange: 'transform' }} />
+                        <img className="thumbnail" src={slide.image} alt={`${slide.title} - Dr. Ketaki's Aesthéva Clinic`} title={slide.title} loading="eager" decoding="sync" width="540" height="540" style={{ willChange: 'transform' }} />
                       </div>
                     </div>
                   </div>

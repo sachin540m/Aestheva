@@ -43,9 +43,13 @@ export default function Approach({ onBookClick }) {
             <Tilt className="hp-img-frame">
               <img
                 src="/dr-ketaki.jpeg"
-                alt="Dr. Ketaki — Aesthéva Clinic"
+                alt="Dr. Ketaki Dongare - Bhoir at Aesthéva Clinic in Sanpada, Navi Mumbai"
+                title="Dr. Ketaki Dongare - Bhoir"
                 className="hp-doctor-img"
                 loading="lazy"
+                decoding="async"
+                width="500"
+                height="600"
               />
               <div className="hp-deco-bracket hp-deco-tl" />
               <div className="hp-deco-bracket hp-deco-br" />

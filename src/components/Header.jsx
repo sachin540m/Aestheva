@@ -54,7 +54,7 @@ export default function Header({ onBookClick }) {
       <div className="header-container">
         {/* Brand Logo */}
         <a href="/" className="logo-area" onClick={(e) => handleNavClick(e, 'hero')}>
-          <img src="/logo.png" alt="Dr. Ketaki's Aesthéva" className="logo-img-tag" />
+          <img src="/logo.png" alt="Dr. Ketaki's Aesthéva - Premium Skin, Hair & Laser Clinic" title="Dr. Ketaki's Aesthéva Clinic" className="logo-img-tag" loading="eager" decoding="async" width="160" height="50" />
         </a>
 
         {/* Desktop Navigation */}

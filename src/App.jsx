@@ -10,6 +10,7 @@ import Marquee from './components/Marquee';
 import Approach from './components/Approach';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
+import SEO from './components/SEO';
 import AppointmentModal from './components/AppointmentModal';
 
 // Lazy-loaded route components
@@ -88,6 +89,98 @@ function App() {
   };
   const pageTransition = { duration: 0.4, ease: [0.22, 1, 0.36, 1] };
 
+  const homepageSchema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Dr. Ketaki's Aesthéva Clinic",
+      "url": "https://drketakisaestheva.in"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Dr. Ketaki's Aesthéva",
+      "url": "https://drketakisaestheva.in",
+      "logo": "https://drketakisaestheva.in/logo.png",
+      "sameAs": [
+        "https://instagram.com/dr_ketakis_aestheva",
+        "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": ["MedicalClinic", "LocalBusiness"],
+      "name": "Dr. Ketaki's Aesthéva Clinic",
+      "alternateName": "Aesthéva Clinic Navi Mumbai",
+      "image": "https://drketakisaestheva.in/logo.png",
+      "@id": "https://drketakisaestheva.in/#clinic",
+      "url": "https://drketakisaestheva.in",
+      "telephone": "+919136611998",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop No 4, Moraj Residency, Plot-01, Sector-16, Sanpada",
+        "addressLocality": "Navi Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400705",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 19.0284428,
+        "longitude": 73.0116812
+      },
+      "hasMap": "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8",
+      "sameAs": [
+        "https://instagram.com/dr_ketakis_aestheva",
+        "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8"
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "11:00",
+        "closes": "20:00"
+      },
+      "medicalSpecialty": [
+        "SkinCare",
+        "CosmeticProcedure",
+        "Dermatology"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Ketaki Dongare - Bhoir",
+        "jobTitle": "Cosmetologist & Aesthetic Consultant"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Physician",
+      "name": "Dr. Ketaki Dongare - Bhoir",
+      "image": "https://drketakisaestheva.in/dr-ketaki.jpeg",
+      "telephone": "+919136611998",
+      "medicalSpecialty": [
+        "SkinCare",
+        "CosmeticProcedure",
+        "Dermatology"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop No 4, Moraj Residency, Plot-01, Sector-16, Sanpada",
+        "addressLocality": "Navi Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400705",
+        "addressCountry": "IN"
+      }
+    }
+  ];
+
   return (
     <div className="app-wrapper">
       <motion.div
@@ -104,82 +197,14 @@ function App() {
           zIndex: 10000,
         }}
       />
-      <Helmet>
-        <title>Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai</title>
-        <meta name="description" content="Dr. Ketaki's Aesthéva is Navi Mumbai's leading clinic offering premium skin rejuvenation, hair restoration (PRP/GFC), MNRF, HIFU, and medical-grade lasers in Sanpada." />
-        <link rel="canonical" href={"https://drketakisaestheva.in" + location.pathname} />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:title" content="Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai" />
-        <meta property="og:description" content="Premium, clinical aesthetic treatments by Dr. Ketaki in Sanpada, Navi Mumbai. Book your clinical skin or hair consultation today." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={"https://drketakisaestheva.in" + location.pathname} />
-        <meta property="og:image" content="https://drketakisaestheva.in/logo.png" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Dr. Ketaki's Aesthéva | Skin, Hair, Laser & Aesthetic Clinic, Navi Mumbai" />
-        <meta name="twitter:description" content="Premium, clinical aesthetic treatments by Dr. Ketaki in Sanpada, Navi Mumbai. Book your clinical skin or hair consultation today." />
-        <meta name="twitter:image" content="https://drketakisaestheva.in/logo.png" />
-
-        {/* Structured Local SEO Data (JSON-LD) */}
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "MedicalBusiness",
-              "name": "Dr. Ketaki's Aesthéva Clinic",
-              "alternateName": "Aesthéva Clinic Navi Mumbai",
-              "image": "https://drketakisaestheva.in/logo.png",
-              "@id": "https://drketakisaestheva.in/#clinic",
-              "url": "https://drketakisaestheva.in",
-              "telephone": "+919136611998",
-              "priceRange": "$$",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Shop No 4, Moraj Residency, Plot-01, Sector-16, Sanpada",
-                "addressLocality": "Navi Mumbai",
-                "addressRegion": "Maharashtra",
-                "postalCode": "400705",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 19.0284428,
-                "longitude": 73.0116812
-              },
-              "hasMap": "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8",
-              "sameAs": [
-                "https://instagram.com/dr_ketakis_aestheva",
-                "https://maps.app.goo.gl/vFLRqvqgjsS7vwBt8"
-              ],
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday"
-                ],
-                "opens": "11:00",
-                "closes": "20:00"
-              },
-              "medicalSpecialty": [
-                "SkinCare",
-                "CosmeticProcedure",
-                "Dermatology"
-              ],
-              "founder": {
-                "@type": "Person",
-                "name": "Dr. Ketaki Dongare - Bhoir",
-                "jobTitle": "Cosmetologist & Aesthetic Consultant"
-              }
-            }
-          `}
-        </script>
-      </Helmet>
+      {location.pathname === '/' && (
+        <SEO 
+          title="Best Aesthetic Clinic in Sanpada, Navi Mumbai | Dr. Ketaki Aestheva"
+          description="Dr Ketaki Aestheva in Sanpada, Navi Mumbai offers premium skin & hair treatments. Achieve healthy skin today. Contact our expert aesthetic clinic for booking."
+          path="/"
+          schema={homepageSchema}
+        />
+      )}
       
       <ScrollToTop />
       <Header onBookClick={() => openModal()} />

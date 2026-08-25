@@ -68,8 +68,13 @@ export default function Services({ onBookClick }) {
             <div className="media-inner">
               <img 
                 src={activeCatInfo.imageUrl} 
-                alt={activeCatInfo.title} 
+                alt={`${activeCatInfo.title} Clinic Treatments - Dr. Ketaki's Aesthéva`} 
+                title={`${activeCatInfo.title} Care`}
                 className="showcase-img"
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="600"
               />
               <div className="media-overlay">
                 <h3>{activeCatInfo.title}</h3>
