@@ -146,7 +146,7 @@ export default function Header({ onBookClick }) {
           </button>
 
           {/* Mobile Menu Button */}
-          <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+          <button className="mobile-menu-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Navigation Menu" aria-expanded={isOpen}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -154,7 +154,7 @@ export default function Header({ onBookClick }) {
 
       {/* Mobile Navigation Drawer */}
       <div className={`mobile-drawer ${isOpen ? 'active' : ''}`}>
-        <button className="mobile-drawer-close" onClick={() => setIsOpen(false)}>
+        <button className="mobile-drawer-close" onClick={() => setIsOpen(false)} aria-label="Close Navigation Menu">
           <X size={24} />
         </button>
         <nav className="mobile-nav-links">
@@ -166,6 +166,8 @@ export default function Header({ onBookClick }) {
             <button
               className="mobile-services-trigger"
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              aria-label="Toggle Services Submenu"
+              aria-expanded={mobileServicesOpen}
             >
               Services <ChevronDown size={18} style={{ transform: mobileServicesOpen ? 'rotate(180deg)' : 'rotate(0)' }} />
             </button>
