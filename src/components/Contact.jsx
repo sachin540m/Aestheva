@@ -20,9 +20,12 @@ export default function Contact({ isPage = false }) {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      await fetch('https://formsubmit.co/ajax/drketakisaestheva@gmail.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify(form)
       });
       setSubmitted(true);
