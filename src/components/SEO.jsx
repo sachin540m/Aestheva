@@ -19,6 +19,30 @@ export default function SEO({
   const formattedPath = path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = path === '/' ? siteUrl : `${siteUrl}${formattedPath}`;
 
+  const webpageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${canonicalUrl}#webpage`,
+    "url": canonicalUrl,
+    "name": seoTitle,
+    "description": seoDesc,
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://drketakisaestheva.in/#website",
+      "name": "Dr. Ketaki's Aesthéva Clinic",
+      "url": "https://drketakisaestheva.in"
+    }
+  };
+
+  let compiledSchemas = [webpageSchema];
+  if (schema) {
+    if (Array.isArray(schema)) {
+      compiledSchemas = [...compiledSchemas, ...schema];
+    } else {
+      compiledSchemas.push(schema);
+    }
+  }
+
   return (
     <Helmet>
       {/* Title Tag */}
@@ -35,19 +59,19 @@ export default function SEO({
       <meta property="og:type" content={ogType} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="Dr. Ketaki's Aesthéva Clinic" />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDesc} />
       <meta name="twitter:image" content={ogImage} />
+      <meta name="twitter:url" content={canonicalUrl} />
 
       {/* Structured Schema Markup */}
-      {schema && (
-        <script type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(compiledSchemas)}
+      </script>
     </Helmet>
   );
 }

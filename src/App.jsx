@@ -157,7 +157,64 @@ function App() {
         "@type": "Person",
         "name": "Dr. Ketaki Dongare - Bhoir",
         "jobTitle": "Cosmetologist & Aesthetic Consultant"
-      }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "215",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Dr. Aishwarya Gawande"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "I took a customized skin rejuvenation and scar treatment package at Aesthéva Clinic under Dr. Ketaki. Over four months, I've seen tremendous improvement in my active acne, scar texture, and overall skin glow. The results are visible, natural, and lasting. Highly recommended clinic for authentic skin care!"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Aditi Sharma"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Dr. Ketaki is an amazing cosmetologist! I went for a skin tags removal and laser session. She explained the entire process clearly. The results are clean and perfect. The clinic is very hygienic."
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Rahul Mehta"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Great experience at Aesthéva Clinic for hair loss treatment. Dr. Ketaki recommended GFC therapy and after 3 sessions, my hair fall has drastically reduced. Highly recommended clinic in Sanpada!"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Pooja Patil"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "I was struggling with stubborn pigmentation for years. Under Dr. Ketaki's advice, I underwent a combination of chemical peels and laser toning. My skin is noticeably brighter and even-toned now."
+        }
+      ]
     },
     {
       "@context": "https://schema.org",
