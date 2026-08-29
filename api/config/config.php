@@ -18,7 +18,7 @@ return [
      * Application Settings
      */
     'app' => [
-        'name'        => 'Directly By Developers',
+        'name'        => 'Aesthéva Clinic',
         'env'         => getenv('APP_ENV') ?: 'production',
         'timezone'    => 'Asia/Kolkata',
         'debug'       => false,
@@ -34,7 +34,7 @@ return [
         'username'   => getenv('SMTP_USERNAME') ?: 'lead@directlybydevelopers.com',
         'password'   => getenv('SMTP_PASSWORD') ?: 'Passcm@2026',
         'from_email' => getenv('SMTP_FROM_EMAIL') ?: 'lead@directlybydevelopers.com',
-        'from_name'  => getenv('SMTP_FROM_NAME') ?: 'Directly By Developers Lead Desk',
+        'from_name'  => getenv('SMTP_FROM_NAME') ?: 'Aesthéva Clinic Lead Desk',
         'to_email'   => getenv('SMTP_TO_EMAIL') ?: 'drketakisaestheva@gmail.com',
         'timeout'    => 15,
     ],

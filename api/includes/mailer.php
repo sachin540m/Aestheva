@@ -143,20 +143,20 @@ class DBDMailer
         $addRow = function (string $label, string $value) use (&$rowsHtml) {
             $rowsHtml .= "
                 <tr>
-                    <td style=\"padding: 12px 16px; border-bottom: 1px solid #E2E8F0; font-size: 13px; font-weight: 600; color: #475569; width: 32%; background-color: #F8FAFC;\">
+                    <td style=\"padding: 12px 16px; border-bottom: 1px solid #EFE8E1; font-size: 13px; font-weight: 600; color: #626C78; width: 32%; background-color: #FAF7F2;\">
                         {$label}
                     </td>
-                    <td style=\"padding: 12px 16px; border-bottom: 1px solid #E2E8F0; font-size: 14px; color: #1E293B;\">
+                    <td style=\"padding: 12px 16px; border-bottom: 1px solid #EFE8E1; font-size: 14px; color: #1E2833;\">
                         {$value}
                     </td>
                 </tr>
             ";
         };
 
-        $addRow('Full Name', "<strong style=\"color: #0F172A; font-size: 15px;\">{$name}</strong>");
-        $addRow('Phone Number', "<a href=\"tel:{$phone}\" style=\"color: #0F5132; text-decoration: none; font-weight: bold;\">{$phone}</a>");
-        $addRow('Email Address', $email !== 'Not Provided' ? "<a href=\"mailto:{$email}\" style=\"color: #2563EB; text-decoration: none;\">{$email}</a>" : $email);
-        $addRow('Enquiry Type', "<span style=\"background-color: #DEF7EC; color: #03543F; font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px;\">{$formType}</span>");
+        $addRow('Full Name', "<strong style=\"color: #1E2833; font-size: 15px;\">{$name}</strong>");
+        $addRow('Phone Number', "<a href=\"tel:{$phone}\" style=\"color: #C77F73; text-decoration: none; font-weight: bold;\">{$phone}</a>");
+        $addRow('Email Address', $email !== 'Not Provided' ? "<a href=\"mailto:{$email}\" style=\"color: #C77F73; text-decoration: none;\">{$email}</a>" : $email);
+        $addRow('Enquiry Type', "<span style=\"background-color: #F6D6D1; color: #C77F73; font-size: 12px; font-weight: 600; padding: 4px 8px; border-radius: 4px;\">{$formType}</span>");
 
         if ($propertyName) {
             $addRow('Property Name', "<strong style=\"color: #1A365D;\">{$propertyName}</strong>");
@@ -180,7 +180,7 @@ class DBDMailer
 <body style="margin: 0; padding: 24px 10px; background-color: #F1F5F9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #334155;">
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); border: 1px solid #E2E8F0;">
         <tr>
-            <td style="background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); padding: 24px 28px; text-align: left; border-bottom: 3px solid #C5A86D;">
+            <td style="background: linear-gradient(135deg, #0A1C2E 0%, #061220 100%); padding: 24px 28px; text-align: left; border-bottom: 3px solid #DD968A;">
                 <h1 style="margin: 0; font-size: 20px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.5px;">
                     {$appName}
                 </h1>
@@ -190,9 +190,9 @@ class DBDMailer
             </td>
         </tr>
         <tr>
-            <td style="background-color: #F0FDF4; border-bottom: 1px solid #DCFCE7; padding: 12px 28px;">
-                <p style="margin: 0; font-size: 13px; color: #166534; font-weight: 600;">
-                    Action Required: A new visitor requested direct developer contact.
+            <td style="background-color: #FAF7F2; border-bottom: 1px solid #EFE8E1; padding: 12px 28px;">
+                <p style="margin: 0; font-size: 13px; color: #C77F73; font-weight: 600;">
+                    New Website Enquiry: A visitor submitted a lead on the website.
                 </p>
             </td>
         </tr>
@@ -204,25 +204,25 @@ class DBDMailer
             </td>
         </tr>
         <tr>
-            <td style="padding: 16px 28px; background-color: #F8FAFC; border-top: 1px solid #E2E8F0;">
-                <h4 style="margin: 0 0 8px 0; font-size: 12px; text-transform: uppercase; color: #64748B; letter-spacing: 0.5px;">
+            <td style="padding: 16px 28px; background-color: #FAF7F2; border-top: 1px solid #EFE8E1;">
+                <h4 style="margin: 0 0 8px 0; font-size: 12px; text-transform: uppercase; color: #626C78; letter-spacing: 0.5px;">
                     Submission Metadata
                 </h4>
-                <p style="margin: 3px 0; font-size: 11px; color: #64748B;">
+                <p style="margin: 3px 0; font-size: 11px; color: #626C78;">
                     <strong>Timestamp:</strong> {$submittedAt}
                 </p>
-                <p style="margin: 3px 0; font-size: 11px; color: #64748B;">
-                    <strong>Page URL:</strong> <a href="{$currentUrl}" style="color: #64748B; word-break: break-all;">{$currentUrl}</a>
+                <p style="margin: 3px 0; font-size: 11px; color: #626C78;">
+                    <strong>Page URL:</strong> <a href="{$currentUrl}" style="color: #C77F73; word-break: break-all;">{$currentUrl}</a>
                 </p>
-                <p style="margin: 3px 0; font-size: 11px; color: #64748B;">
+                <p style="margin: 3px 0; font-size: 11px; color: #626C78;">
                     <strong>Client IP:</strong> {$clientIp}
                 </p>
             </td>
         </tr>
         <tr>
-            <td style="background-color: #0F172A; padding: 16px 28px; text-align: center;">
+            <td style="background-color: #0A1C2E; padding: 16px 28px; text-align: center;">
                 <p style="margin: 0; font-size: 11px; color: #94A3B8;">
-                    This automated email was sent by the Hostinger SMTP lead engine of Directly By Developers.
+                    This automated email was sent by the Hostinger SMTP lead engine of Aesthéva Clinic.
                 </p>
             </td>
         </tr>
@@ -250,7 +250,7 @@ HTML;
         $clientIp = $lead['clientIp'] ?? 'Unknown';
 
         return <<<TEXT
-NEW LEAD NOTIFICATION - DIRECTLY BY DEVELOPERS
+NEW LEAD NOTIFICATION - AESTHÉVA CLINIC
 ==================================================
 
 Full Name:       {$name}
@@ -269,7 +269,7 @@ Page Source URL: {$currentUrl}
 Client IP:       {$clientIp}
 
 ==================================================
-Directly By Developers Automated Lead Notification
+Aesthéva Clinic Automated Lead Notification
 TEXT;
     }
 
