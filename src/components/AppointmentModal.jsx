@@ -72,7 +72,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
   const onSubmit = async (data) => {
     try {
       // Formspree payload or mock request
-      await fetch('https://formsubmit.co/ajax/drketakisaestheva@gmail.com', {
+      await fetch('/api/submit-lead.php', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',

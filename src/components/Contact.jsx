@@ -20,7 +20,7 @@ export default function Contact({ isPage = false }) {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch('https://formsubmit.co/ajax/drketakisaestheva@gmail.com', {
+      await fetch('/api/submit-lead.php', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
