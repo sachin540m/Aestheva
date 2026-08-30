@@ -35,7 +35,7 @@ return [
         'password'   => getenv('SMTP_PASSWORD') ?: 'Passcm@2026',
         'from_email' => getenv('SMTP_FROM_EMAIL') ?: 'lead@directlybydevelopers.com',
         'from_name'  => getenv('SMTP_FROM_NAME') ?: 'Aesthéva Clinic Lead Desk',
-        'to_email'   => getenv('SMTP_TO_EMAIL') ?: 'sachinmaurya.work@gmail.com',
+        'to_email'   => getenv('SMTP_TO_EMAIL') ?: 'drketakisaestheva@gmail.com',
         'timeout'    => 15,
     ],
 
