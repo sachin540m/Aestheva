@@ -11,6 +11,7 @@ export default function Contact({ isPage = false }) {
     phone: '',
     date: '',
     service: '',
+    time: '',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -29,7 +30,7 @@ export default function Contact({ isPage = false }) {
         body: JSON.stringify({ ...form, formType: 'General Enquiry' })
       });
       setSubmitted(true);
-      setForm({ name: '', email: '', phone: '', date: '', service: '', message: '' });
+      setForm({ name: '', email: '', phone: '', date: '', service: '', time: '', message: '' });
     } catch (err) {
       alert('Submission failed. Please contact us directly via phone or WhatsApp.');
     } finally {
@@ -195,6 +196,19 @@ export default function Contact({ isPage = false }) {
                     <label>Phone Number</label>
                   </div>
 
+                  <div className="floating-underline-group">
+                    <select 
+                      required
+                      value={form.service}
+                      onChange={e => setForm({...form, service: e.target.value})}
+                    >
+                      <option value="" disabled hidden>Select Service</option>
+                      {servicesData.map(s => (
+                        <option key={s.id} value={s.title}>{s.title}</option>
+                      ))}
+                    </select>
+                  </div>
+
                   <div className="row-fields">
                     <div className="floating-underline-group half-width">
                       <input 
@@ -208,13 +222,14 @@ export default function Contact({ isPage = false }) {
                     <div className="floating-underline-group half-width">
                       <select 
                         required
-                        value={form.service}
-                        onChange={e => setForm({...form, service: e.target.value})}
+                        value={form.time}
+                        onChange={e => setForm({...form, time: e.target.value})}
                       >
-                        <option value="" disabled hidden>Select Service</option>
-                        {servicesData.map(s => (
-                          <option key={s.id} value={s.title}>{s.title}</option>
-                        ))}
+                        <option value="" disabled hidden>Select Time Slot</option>
+                        <option value="10:00 AM - 12:00 PM">Morning (10 AM - 12 PM)</option>
+                        <option value="12:00 PM - 03:00 PM">Afternoon (12 PM - 3 PM)</option>
+                        <option value="03:00 PM - 06:00 PM">Evening (3 PM - 6 PM)</option>
+                        <option value="06:00 PM - 08:00 PM">Late Evening (6 PM - 8 PM)</option>
                       </select>
                     </div>
                   </div>
