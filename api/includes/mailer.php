@@ -134,6 +134,9 @@ class DBDMailer
         $propertyName = !empty($lead['propertyName']) ? htmlspecialchars($lead['propertyName'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
         $region = !empty($lead['region']) ? htmlspecialchars($lead['region'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
         $visitDay = !empty($lead['visitDay']) ? htmlspecialchars($lead['visitDay'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
+        $service = !empty($lead['service']) ? htmlspecialchars($lead['service'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
+        $date = !empty($lead['date']) ? htmlspecialchars($lead['date'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
+        $time = !empty($lead['time']) ? htmlspecialchars($lead['time'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : null;
         $message = !empty($lead['message']) ? nl2br(htmlspecialchars($lead['message'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')) : 'No additional message provided.';
         $submittedAt = htmlspecialchars($lead['submittedAt'] ?? date('Y-m-d H:i:s T'), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
         $currentUrl = !empty($lead['currentUrl']) ? htmlspecialchars($lead['currentUrl'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') : 'Direct Access';
@@ -166,6 +169,15 @@ class DBDMailer
         }
         if ($visitDay) {
             $addRow('Preferred Visit Day', "<span style=\"color: #C05621; font-weight: 600;\">{$visitDay}</span>");
+        }
+        if ($service) {
+            $addRow('Preferred Service', "<strong style=\"color: #C77F73;\">{$service}</strong>");
+        }
+        if ($date) {
+            $addRow('Preferred Date', "<strong>{$date}</strong>");
+        }
+        if ($time) {
+            $addRow('Preferred Time', "<span style=\"color: #C77F73; font-weight: 600;\">{$time}</span>");
         }
         $addRow('Message / Notes', "<div style=\"background-color: #FFFFFF; padding: 10px; border-radius: 6px; border: 1px solid #E2E8F0; color: #334155; line-height: 1.6;\">{$message}</div>");
 
@@ -244,6 +256,9 @@ HTML;
         $propertyName = $lead['propertyName'] ?? 'N/A';
         $region = $lead['region'] ?? 'N/A';
         $visitDay = $lead['visitDay'] ?? 'N/A';
+        $service = $lead['service'] ?? 'N/A';
+        $date = $lead['date'] ?? 'N/A';
+        $time = $lead['time'] ?? 'N/A';
         $message = $lead['message'] ?? 'N/A';
         $submittedAt = $lead['submittedAt'] ?? date('Y-m-d H:i:s T');
         $currentUrl = $lead['currentUrl'] ?? 'N/A';
@@ -260,6 +275,9 @@ Enquiry Type:    {$formType}
 Property:        {$propertyName}
 Region:          {$region}
 Preferred Day:   {$visitDay}
+Preferred Service: {$service}
+Preferred Date:    {$date}
+Preferred Time:    {$time}
 Message / Notes: {$message}
 
 SUBMISSION METADATA:

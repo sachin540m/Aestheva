@@ -191,6 +191,9 @@ class DBDSecurity
         $sanitized['propertyName'] = self::sanitizeSingleLine($input['propertyName'] ?? '', 150);
         $sanitized['region']       = self::sanitizeSingleLine($input['region'] ?? '', 100);
         $sanitized['visitDay']     = self::sanitizeSingleLine($input['visitDay'] ?? '', 50);
+        $sanitized['service']      = self::sanitizeSingleLine($input['service'] ?? '', 150);
+        $sanitized['date']         = self::sanitizeSingleLine($input['date'] ?? '', 50);
+        $sanitized['time']         = self::sanitizeSingleLine($input['time'] ?? '', 50);
 
         // 6. Message / Requirement (Multi-line sanitized)
         $sanitized['message']      = self::sanitizeMultiLine($input['message'] ?? '', 3000);

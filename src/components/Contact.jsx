@@ -26,7 +26,7 @@ export default function Contact({ isPage = false }) {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(form)
+        body: JSON.stringify({ ...form, formType: 'General Enquiry' })
       });
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', date: '', service: '', message: '' });

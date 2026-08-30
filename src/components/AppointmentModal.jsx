@@ -78,7 +78,7 @@ export default function AppointmentModal({ isOpen, onClose, selectedService }) {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ ...data, formType: 'Appointment Request' })
       });
       setSubmittedData(data);
       toast.success('Appointment requested successfully!');
